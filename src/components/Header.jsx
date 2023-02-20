@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <>
-      <p>in Header!</p>
+      <p style={{height: '60px'}}>in Header!</p>
     </>
   );
 }
