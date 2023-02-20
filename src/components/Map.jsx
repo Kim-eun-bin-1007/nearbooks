@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { UserCtx } from '../store/user-context';
 import { LibraryCtx } from '../store/library-context';
+import './Map.css';
 
 function Map() {
   const userCtx = useContext(UserCtx);
@@ -43,23 +44,6 @@ function Map() {
 
       userMarker.setMap(map);
       userMarker.setZIndex(1);
-
-      // test : custom overlay
-      const content = "<p style='background: white; padding: 5px'>유저 위치</p>"
-      const position = new kakao.maps.LatLng(
-        userCtx.location.lat,
-        userCtx.location.lng
-      );
-
-      const customOverlay = new kakao.maps.CustomOverlay({
-        map,
-        position,
-        content,
-        yAnchor: 2.7
-      });
-
-      customOverlay.setMap(map);
-      customOverlay.setZIndex(1);
     }
 
     if (publicLibrary !== {} && smallLibrary !== {}) {
@@ -79,31 +63,57 @@ function Map() {
         imgOption
       );
 
+      const setCustomOverlay = (libraryName, position, marker) => {
+        const content =
+          `<div class='overlay'><span class='overlay-text'>${libraryName}</span></div>`;
+
+        const customOverlay = new kakao.maps.CustomOverlay({
+          map,
+          position,
+          content,
+          yAnchor: 2,
+          zIndex: 1,
+        });
+
+        customOverlay.setMap(map);
+        customOverlay.setVisible(false);
+
+        // 마커에 이벤트 등록
+        kakao.maps.event.addListener(marker, "click", () => {
+          customOverlay.setVisible(!customOverlay.getVisible());
+        });
+      };
+
       // 공공도서관 마커
       for (const key in publicLibrary) {
         publicLibrary[key].forEach((library) => {
-          const markerPosition = new kakao.maps.LatLng(library.XCNTS, library.YDNTS);
-      
+          const position = new kakao.maps.LatLng(
+            library.XCNTS,
+            library.YDNTS
+          );
+
           const publicMarker = new kakao.maps.Marker({
-            position: markerPosition,
+            position: position,
             image: publicMarkerImg,
           });
 
           publicMarker.setMap(map);
+          setCustomOverlay(library.LBRRY_NAME, position, publicMarker);
         });
       }
 
       // 작은도서관 마커
       for (const key in smallLibrary) {
         smallLibrary[key].forEach((library) => {
-          const markerPosition = new kakao.maps.LatLng(library.XCNTS, library.YDNTS);
+          const position = new kakao.maps.LatLng(library.XCNTS, library.YDNTS);
       
           const smallMarker = new kakao.maps.Marker({
-            position: markerPosition,
+            position: position,
             image: smallMarkerImg,
           });
 
           smallMarker.setMap(map);
+          setCustomOverlay(library.LBRRY_NAME, position, smallMarker);
         });
       }
     }

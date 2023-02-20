@@ -1,0 +1,16 @@
+.overlay {
+  box-sizing: border-box;
+  padding: .8rem;
+  padding-right: 2rem;
+  width: 180px;
+  min-width: 140px;
+  max-width: 200px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.overlay-text {
+  font-size: 14px;
+  white-space: normal;
+  word-break: break-word;
+}
