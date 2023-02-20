@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'SUIT';
+  src: url('./assets/font/SUIT-Regular.woff') format('woff');
+}
+
+body {
+  margin: 0;
+  color: #222;
+  font-family: 'SUIT';
+  letter-spacing: -0.02em;
+  font-size: 15px;
+}
+
+a {
+  /* color: $gray2; */
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  margin: 0;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
