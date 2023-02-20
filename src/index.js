@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import "./reset.css";
+import "./common.css";
 import App from "./App";
 import LibraryProvider from "./store/library-context";
 import UserProvider from "store/user-context";

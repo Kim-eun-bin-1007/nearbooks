@@ -220,6 +220,7 @@ function Map() {
             <span className="category__title">작은도서관</span>
           </button>
         </li>
+        {/* 사용자 위치 정보 동의시에만 노출 */}
         {userCtx.isGetLocation && (
           <li className="category__item">
             <button

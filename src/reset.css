@@ -12,9 +12,13 @@ body {
 }
 
 a {
-  /* color: $gray2; */
+  color: #222;
   text-decoration: none;
 }
+
+/* a:focus {
+  outline: 2px solid #477D73;
+} */
 
 ul {
   margin: 0;
