@@ -1,10 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import styled from 'styled-components';
-
-const BoroughWrap = styled.div`
-  padding-top: 60px;
-`;
+import { BoroughWrap } from '../../style/Borough';
 
 function BoroughLayout() {
   return (
