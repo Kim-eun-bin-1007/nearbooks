@@ -167,17 +167,14 @@ export const Menu = styled.div`
 
   .menu-title {
     position: relative;
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 600;
-    color: #fdf1ed;
+    color: white;
+    -webkit-text-stroke: 0.25px rgba(255, 255, 255, 0.8);
+    -webkit-text-fill-color: transparent;
 
     &:hover,
     &:focus {
-    }
-
-    &--active {
-      color: #477d73;
-
       &::after {
         content: "";
         display: block;
@@ -186,8 +183,24 @@ export const Menu = styled.div`
         right: -12px;
         width: 10px;
         height: 10px;
-        background-color: #477d73;
+        background-color: white;
         border-radius: 50%;
+      }
+    }
+
+    &--active {
+      color: white;
+      -webkit-text-fill-color: white;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: white;
       }
     }
   }
