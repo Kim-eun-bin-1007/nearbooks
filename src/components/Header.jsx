@@ -74,6 +74,7 @@ function Header() {
                 className={(item) =>
                   item.isActive ? "menu-title menu-title--active" : "menu-title"
                 }
+                onClick={hideMenu}
               >
                 자치구별 도서관
               </NavLink>
@@ -84,7 +85,7 @@ function Header() {
                 className={(item) =>
                   item.isActive ? "menu-title menu-title--active" : "menu-title"
                 }
-                onClick={() => setIsOpenMenu(false)}
+                onClick={hideMenu}
               >
                 내 주변 도서관
               </NavLink>
