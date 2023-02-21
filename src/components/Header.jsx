@@ -27,7 +27,7 @@ function Header() {
 
   return (
     <>
-      <h1 className="hidden">NearBooks</h1>
+      <h1 className="hidden">NearbyBooks</h1>
       <CSSTransition
         in={!isOpenMenu}
         timeout={200}
@@ -47,7 +47,7 @@ function Header() {
             <span className="menu__line" />
           </button>
           <Link to="/">
-            <img src="/assets/logo.png" alt="NearBooks" className="logo" />
+            <img src="/assets/logo.png" alt="NearbyBooks" className="logo" />
           </Link>
         </StyledHeader>
       </CSSTransition>
