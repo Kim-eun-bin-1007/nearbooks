@@ -27,6 +27,7 @@ function Header() {
 
   return (
     <>
+      <h1 className="hidden">NearBooks</h1>
       <CSSTransition
         in={!isOpenMenu}
         timeout={200}
