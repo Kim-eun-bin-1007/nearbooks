@@ -14,6 +14,44 @@ export const StyledHeader = styled.header`
   height: 60px;
   background-color: #e76539;
 
+  &.header--show {
+    animation: headerShow 0.2s;
+  }
+
+  &.header--hide {
+    animation: headerHide 0.23s;
+  }
+
+  @keyframes headerShow {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    30% {
+      opacity: 1;
+      transform: translateY(-50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes headerHide {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    30% {
+      opacity: 1;
+      transform: translateY(-50%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+  }
+
   .menu {
     box-sizing: border-box;
     display: flex;
@@ -23,7 +61,7 @@ export const StyledHeader = styled.header`
     padding: 10px 0;
     width: 40px;
     height: 40px;
-    
+
     & .menu__line {
       width: 65%;
       height: 2px;
@@ -41,10 +79,48 @@ export const Menu = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
   width: 100%;
   height: 100vh;
-  z-index: 1000;
   background: linear-gradient(to right, #e76539 28%, transparent 200%);
+
+  &.menu--open {
+    animation: menuOpen 0.2s;
+  }
+
+  &.menu--close {
+    animation: menuClose 0.23s;
+  }
+
+  @keyframes menuOpen {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    30% {
+      opacity: 1;
+      transform: translateX(-50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes menuClose {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    30% {
+      opacity: 1;
+      transform: translateX(-50%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  }
 
   .close-btn {
     position: absolute;
@@ -56,10 +132,10 @@ export const Menu = styled.div`
     &__icon {
       display: block;
       position: relative;
-    
+
       &::before,
       &::after {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         top: 0;
@@ -69,7 +145,7 @@ export const Menu = styled.div`
         background-color: white;
         border-radius: 5px;
       }
-      
+
       &::before {
         transform: rotate(45deg);
       }
@@ -114,6 +190,5 @@ export const Menu = styled.div`
         border-radius: 50%;
       }
     }
-
   }
 `;

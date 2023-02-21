@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
+import CSSTransition from "react-transition-group/CSSTransition";
 
 import { LibraryCtx } from "../store/library-context";
 import { UserCtx } from "../store/user-context";
@@ -22,11 +23,22 @@ function Header() {
 
   const hideMenu = () => {
     setIsOpenMenu(false);
-  }
+  };
 
   return (
     <>
-      {!isOpenMenu && (
+      <CSSTransition
+        in={!isOpenMenu}
+        timeout={200}
+        mountOnEnter
+        unmountOnExit
+        classNames={{
+          enter: "",
+          enterActive: "header--show",
+          exit: "",
+          exitActive: "header--hide",
+        }}
+      >
         <StyledHeader>
           <button className="menu" onClick={showMenu}>
             <span className="menu__line" />
@@ -37,10 +49,21 @@ function Header() {
             <img src="/assets/logo.png" alt="NearBooks" className="logo" />
           </Link>
         </StyledHeader>
-      )}
-      {isOpenMenu && (
+      </CSSTransition>
+      <CSSTransition
+        in={isOpenMenu}
+        timeout={200}
+        mountOnEnter
+        unmountOnExit
+        classNames={{
+          enter: "",
+          enterActive: "menu--open",
+          exit: "",
+          exitActive: "menu--close",
+        }}
+      >
         <Menu>
-          <button className='close-btn' onClick={hideMenu}>
+          <button className="close-btn" onClick={hideMenu}>
             <span className="close-btn__icon" />
             <span className="hidden">메뉴 닫기</span>
           </button>
@@ -68,7 +91,7 @@ function Header() {
             </li>
           </ul>
         </Menu>
-      )}
+      </CSSTransition>
     </>
   );
 }

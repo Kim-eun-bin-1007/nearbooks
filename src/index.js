@@ -11,12 +11,10 @@ import UserProvider from "store/user-context";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <React.StrictMode>
-      <LibraryProvider>
-        <UserProvider>
-          <App />
-        </UserProvider>
-      </LibraryProvider>
-    </React.StrictMode>
+    <LibraryProvider>
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </LibraryProvider>
   </BrowserRouter>
 );
