@@ -71,7 +71,7 @@ function Header() {
           <ul className="menu-list">
             <li className="menu-item">
               <NavLink
-                to="/"
+                to="/borough"
                 className={(item) =>
                   item.isActive ? "menu-title menu-title--active" : "menu-title"
                 }
