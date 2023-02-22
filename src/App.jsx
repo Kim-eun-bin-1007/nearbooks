@@ -7,10 +7,11 @@ import BoroughLayout from 'components/borough/BoroughLayout';
 import Borough from "./components/borough/Borough";
 import BoroughList from "./components/borough/BoroughList";
 import BoroughView from "./components/borough/BoroughView";
+import { CommonMain } from './style/Common';
 
 function App() {
   return (
-    <>
+    <CommonMain>
       <Header />
       <main>
         <Routes>
@@ -23,7 +24,7 @@ function App() {
           </Route>
         </Routes>
       </main>
-    </>
+    </CommonMain>
   );
 }
 

@@ -33,7 +33,7 @@ const boroughList = [
 function Borough() {
   return (
     <BoroughList>
-      <p className='borough-info'>자치구를 선택해주세요.</p>
+      <p className='info'>자치구를 선택해주세요.</p>
       <ul className="borough">
         {boroughList.map(borough => {
           return (
