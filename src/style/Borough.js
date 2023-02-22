@@ -60,13 +60,7 @@ export const LibraryList = styled.div`
     position: sticky;
     top: 60px;
     z-index: 100;
-    padding: 15px 0;
     background-color: white;
-
-    &__borough {
-      font-size: 20px;
-      font-weight: 600;
-    }
   }
 
   .library {
@@ -82,10 +76,38 @@ export const LibraryList = styled.div`
     &-list {
       margin-top: 10px;
     }
+  }
+`;
 
-    &__heading {
-    }
+export const LibraryView = styled.div`
+  .library-pad {
+    position: relative;
+    z-index: 100;
+    padding: 60px 15px 0;
+    background-color: #eee;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
 
+  .library__func {
+    padding-bottom: 20px;
+  }
+
+  .close-btn {
+    top: 64px;
+    right: 8px;
+  }
+
+  .open-btn {
+    position: absolute;
+    bottom: -15px;
+    right: 15px;
+    transform: translateY(100%);
+    z-index: 100;
+  }
+`;
+
+export const LibraryInfoStyle = styled.div`
+  .library {
     &__title {
       box-sizing: border-box;
       display: inline-block;
@@ -100,6 +122,8 @@ export const LibraryList = styled.div`
     }
 
     &__content {
+      margin: 0;
+      padding: 20px 0;
     }
 
     &-info {
@@ -144,7 +168,6 @@ export const LibraryList = styled.div`
     &__func {
       display: flex;
       justify-content: flex-end;
-      margin-top: 25px;
     }
   }
 `;

@@ -20,8 +20,8 @@ function App() {
           <Route path="/borough" element={<BoroughLayout />}>
             <Route index element={<Borough />} />
             <Route path=":GuCode" element={<BoroughList />} />
-            <Route path=':GuCode/:id' element={<BoroughView />} />
           </Route>
+          <Route path='/borough/:GuCode/:id' element={<BoroughView />} />
         </Routes>
       </main>
     </CommonMain>

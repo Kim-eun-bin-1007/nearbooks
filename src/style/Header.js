@@ -123,37 +123,15 @@ export const Menu = styled.div`
   }
 
   .close-btn {
-    position: absolute;
     top: 15px;
     right: 15px;
-    width: 40px;
-    height: 40px;
+  }
 
-    &__icon {
-      display: block;
-      position: relative;
-
-      &::before,
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background-color: white;
-        border-radius: 5px;
-      }
-
-      &::before {
-        transform: rotate(45deg);
-      }
-
-      &::after {
-        transform: rotate(-45deg);
-      }
-    }
+  .close-btn__icon::before,
+  .close-btn__icon::after {
+    width: 100%;
+    height: 3px;
+    background-color: white;
   }
 
   .menu-list {

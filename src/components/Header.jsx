@@ -4,7 +4,7 @@ import CSSTransition from "react-transition-group/CSSTransition";
 
 import { LibraryCtx } from "../store/library-context";
 import { UserCtx } from "../store/user-context";
-
+import CloseBtn from './UI/CloseBtn';
 import { StyledHeader, Menu } from "../style/Header";
 
 function Header() {
@@ -64,10 +64,7 @@ function Header() {
         }}
       >
         <Menu>
-          <button className="close-btn" onClick={hideMenu}>
-            <span className="close-btn__icon" />
-            <span className="hidden">메뉴 닫기</span>
-          </button>
+          <CloseBtn text='메뉴 닫기' onClickHandler={hideMenu} />
           <ul className="menu-list">
             <li className="menu-item">
               <NavLink

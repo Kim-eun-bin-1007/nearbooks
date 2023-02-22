@@ -56,4 +56,31 @@ export const CommonMain = styled.div`
     border-radius: 15px;
     font-size: 12px;
   }
+
+  .breadcrumbs {
+    padding: 15px 0;
+    color: #444;
+    font-size: 14px;
+
+    &__category {
+      &::after {
+        content: ' >';
+      }
+    }
+
+    a.breadcrumbs__category {
+      position: relative;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: calc(100% - 11px);
+        height: 1px;
+        background-color: #666;
+      }
+    }
+  }
 `;
