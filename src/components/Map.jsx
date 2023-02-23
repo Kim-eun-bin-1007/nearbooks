@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useContext, useCallback } from 'react';
 
 import { UserCtx } from '../store/user-context';
 import { LibraryCtx } from '../store/library-context';
-import './Map.css';
+import { MapStyle } from '../style/Map';
 
 const { kakao } = window;
 
@@ -191,7 +191,7 @@ function Map() {
   const smallBtnClass = libraryType === 'small' ? 'category__btn active' : 'category__btn';
 
   return (
-    <div className="map-wrap">
+    <MapStyle>
       <div ref={mapRef} className='map' />
       <ul className="category">
         <li className="category__item">
@@ -237,7 +237,7 @@ function Map() {
           </li>
         )}
       </ul>
-    </div>
+    </MapStyle>
   );
 }
 
