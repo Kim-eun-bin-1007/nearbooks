@@ -38,6 +38,15 @@ export const CommonMain = styled.div`
       }
     }
 
+    &__icon {
+      display: inline-block;
+      position: relative;
+      top: 2px;
+      margin-left: 4px;
+      font-size: 14px;
+      color: #666;
+    }
+
     & + .btn {
       margin-left: 10px;
     }
