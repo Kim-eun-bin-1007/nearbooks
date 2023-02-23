@@ -56,13 +56,6 @@ export const BoroughList = styled.div`
 `;
 
 export const LibraryList = styled.div`
-  .breadcrumbs {
-    position: sticky;
-    top: 60px;
-    z-index: 100;
-    background-color: white;
-  }
-
   .library {
     margin-top: 25px;
     padding: 20px;
