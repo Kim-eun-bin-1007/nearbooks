@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BoroughWrap = styled.div`
-  padding: 70px 15px 30px;
+  padding: 70px 15px 60px;
 `;
 
 export const BoroughList = styled.div`

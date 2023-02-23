@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { LibraryCtx } from "../../store/library-context";
 import LibraryInfo from './LibraryInfo';
+import GoTop from '../UI/GoTop';
 import { LibraryList } from "../../style/Borough";
 
 function BoroughList() {
@@ -36,6 +37,7 @@ function BoroughList() {
         {publicLibrary.map((library) => setLibraryItem(library))}
         {smallLibrary.map((library) => setLibraryItem(library))}
       </ul>
+      <GoTop />
     </LibraryList>
   );
 }
