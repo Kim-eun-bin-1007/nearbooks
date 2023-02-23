@@ -17,6 +17,7 @@ const { kakao } = window;
 
 function BoroughView() {
   const [mapObj, setMapObj] = useState(null);
+  const [windowHeight, setWindowHeight] = useState(0);
   const [infoRefHeight, setInfoRefHeight] = useState(0);
   const [mapHeight, setMapHeight] = useState(0);
   const [isInfoOpened, setIsInfoOpened] = useState(true);
@@ -68,6 +69,7 @@ function BoroughView() {
 
   useEffect(() => {
     setMap();
+    setWindowHeight(window.innerHeight);
   }, [setMap]);
   
   if (
@@ -82,8 +84,8 @@ function BoroughView() {
   // infoRefHeight가 변경될 때마다 mapHeight값 update
   useEffect(() => {
     if (infoRefHeight === 0) return; // 초기실행 방지
-    setMapHeight(window.innerHeight - infoRefHeight);
-  }, [infoRefHeight]);
+    setMapHeight(windowHeight - infoRefHeight);
+  }, [windowHeight, infoRefHeight]);
 
   // mapHeight가 변경될 때마다 지도 사이즈와 센터값 변경
   useEffect(() => {
@@ -97,6 +99,22 @@ function BoroughView() {
   useEffect(() => {
     setInfoRefHeight(infoRef.current.offsetHeight);
   }, [isInfoOpened]);
+
+  // resize 이벤트
+  useEffect(() => {
+    const resizeEvent = () => {
+      setWindowHeight(window.innerHeight);
+    };
+
+    const debounceTimer = setTimeout(() => {
+      window.addEventListener('resize', resizeEvent)
+    }, 150);
+
+    return () => {
+      clearTimeout(debounceTimer);
+      window.removeEventListener('resize', resizeEvent);
+    }
+  }, []);
 
   return (
     <LibraryView>
