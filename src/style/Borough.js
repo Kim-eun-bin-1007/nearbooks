@@ -106,6 +106,11 @@ export const LibraryView = styled.div`
   }
 `;
 
+export const MapStyle = styled.div`
+  width: 100%;
+  height: ${props => props.height}px;
+`;
+
 export const LibraryInfoStyle = styled.div`
   .library {
     &__title {
