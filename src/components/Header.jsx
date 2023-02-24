@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import CSSTransition from "react-transition-group/CSSTransition";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 import { LibraryCtx } from "../store/library-context";
 import { UserCtx } from "../store/user-context";
@@ -12,6 +13,8 @@ function Header() {
   const { getLocation: getUserLocation } = useContext(UserCtx);
   const { getLibraryList } = useContext(LibraryCtx);
 
+  const main = document.querySelector('main');
+
   useEffect(() => {
     getLibraryList();
     getUserLocation();
@@ -19,10 +22,12 @@ function Header() {
 
   const showMenu = () => {
     setIsOpenMenu(true);
+    disableBodyScroll(main);
   };
 
   const hideMenu = () => {
     setIsOpenMenu(false);
+    enableBodyScroll(main);
   };
 
   return (
