@@ -1,11 +1,11 @@
 import { useRef, useEffect, useContext } from "react";
 
-import LibraryInfo from "./borough/LibraryInfo";
-import CloseBtn from './UI/CloseBtn';
-import useMap from "../hook/use-map";
-import { UserCtx } from "../store/user-context";
-import { MapStyle } from "../style/Map";
-import { LibraryView } from '../style/Borough';
+import LibraryInfo from "../LibraryInfo";
+import CloseBtn from '../UI/CloseBtn';
+import useMap from "../../hook/use-map";
+import { UserCtx } from "../../store/user-context";
+import { MapStyle } from "../../style/Map";
+import { LibraryView } from '../../style/Borough';
 
 function Map() {
   const mapRef = useRef();

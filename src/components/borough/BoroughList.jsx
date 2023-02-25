@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import { LibraryCtx } from "../../store/library-context";
-import LibraryInfo from './LibraryInfo';
+import LibraryInfo from '../LibraryInfo';
 import GoTop from '../UI/GoTop';
 import { LibraryList } from "../../style/Borough";
 

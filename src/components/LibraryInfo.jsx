@@ -1,6 +1,72 @@
 import { Link } from "react-router-dom";
 
-import { LibraryInfoStyle } from "../../style/Borough";
+import styled from 'styled-components';
+
+const LibraryInfoStyle = styled.div`
+  .library {
+    &__title {
+      box-sizing: border-box;
+      display: inline-block;
+      margin: 10px;
+      margin-left: 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .badge {
+      top: -2px;
+    }
+
+    &__content {
+      margin: 0;
+      padding: 20px 0;
+    }
+
+    &-info {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 8px;
+
+      &__dt {
+        position: relative;
+        display: block;
+        width: 90px;
+        font-size: 14px;
+        color: #444;
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 3px;
+          right: 15px;
+          width: 1px;
+          height: 10px;
+          background-color: #ccc;
+        }
+      }
+
+      &__dd {
+        display: block;
+        margin: 0;
+        width: calc(100% - 100px);
+        font-size: 14px;
+        color: #444;
+        word-break: keep-all;
+        word-wrap: break-word;
+      }
+
+      &__tel {
+        text-decoration: underline;
+      }
+    }
+
+    &__func {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+`;
 
 function LibraryInfo(props) {
   const { library, hasMapBtn } = props;

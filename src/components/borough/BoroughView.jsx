@@ -9,7 +9,7 @@ import {
 import { useParams, Link } from "react-router-dom";
 
 import { LibraryCtx } from "../../store/library-context";
-import LibraryInfo from "./LibraryInfo";
+import LibraryInfo from "../LibraryInfo";
 import CloseBtn from "../UI/CloseBtn";
 import { LibraryView, MapStyle } from "../../style/Borough";
 
