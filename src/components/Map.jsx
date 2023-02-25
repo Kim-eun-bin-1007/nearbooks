@@ -18,6 +18,7 @@ function Map() {
     changeLibraryType,
     movePosition,
     closeInfo,
+    returnMarkerImg,
   } = useMap();
 
   // [TODO] : UserCtx.getLocation이 null이면 로딩스피너를 노출
@@ -30,14 +31,27 @@ function Map() {
     libraryType === "public" ? "category__btn active" : "category__btn";
   const smallBtnClass =
     libraryType === "small" ? "category__btn active" : "category__btn";
+  
+  const closeInfoHandler = () => {
+    closeInfo();
+    returnMarkerImg();
+  };
+
+  const changeTypeHandler = (type) => {
+    changeLibraryType(type);
+    returnMarkerImg();
+  }
 
   return (
     <>
       {isSelectedMarker && (
         <LibraryView>
           <div className="library-pad in-map">
-            <CloseBtn text='도서관정보 닫기' onClickHandler={closeInfo} />
-            <LibraryInfo library={selectedMarker} hasMapBtn={false} />
+            <CloseBtn
+              text="도서관정보 닫기"
+              onClickHandler={closeInfoHandler}
+            />
+            <LibraryInfo library={selectedMarker.info} hasMapBtn={false} />
           </div>
         </LibraryView>
       )}
@@ -47,7 +61,7 @@ function Map() {
           <li className="category__item">
             <button
               className={publicBtnClass}
-              onClick={changeLibraryType.bind(null, "public")}
+              onClick={changeTypeHandler.bind(null, "public")}
             >
               <img
                 src="/assets/marker/pin-primary.svg"
@@ -60,7 +74,7 @@ function Map() {
           <li className="category__item">
             <button
               className={smallBtnClass}
-              onClick={changeLibraryType.bind(null, "small")}
+              onClick={changeTypeHandler.bind(null, "small")}
             >
               <img
                 src="/assets/marker/pin-secondary.svg"

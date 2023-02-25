@@ -4,6 +4,11 @@ import { LibraryCtx } from "store/library-context";
 import { UserCtx } from "../store/user-context";
 
 const { kakao } = window;
+const selectedMarkerSrc = "/assets/marker/pin-selected.svg";
+const publicMarkerSrc = "/assets/marker/pin-primary.svg";
+const smallMarkerSrc = "/assets/marker/pin-secondary.svg";
+const markerSize = new kakao.maps.Size(40, 40);
+const markerPoint = new kakao.maps.Point(20, 40);
 
 const useMap = () => {
   const userCtx = useContext(UserCtx);
@@ -16,6 +21,39 @@ const useMap = () => {
   const [isSelectedMarker, setIsSelectedMarker] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState({});
 
+  // 선택된 마커 이미지 변경
+  const setNewImg = useCallback(
+    (marker, lat, lng) => {
+      const newMarker = new kakao.maps.MarkerImage(
+        selectedMarkerSrc,
+        markerSize,
+        markerPoint
+      );
+      marker.setImage(newMarker);
+
+      // 지도 중심 이동
+      const position = new kakao.maps.LatLng(lat, lng);
+      libraryMap.panTo(position);
+    },
+    [libraryMap]
+  );
+
+  // 선택된 마커 이미지 되돌리기
+  const returnMarkerImg = useCallback(() => {
+    if (!selectedMarker.info) return;
+
+    const imgSrc =
+      selectedMarker.info.LBRRY_SE_NAME === "공공도서관"
+        ? publicMarkerSrc
+        : smallMarkerSrc;
+    const newMarker = new kakao.maps.MarkerImage(
+      imgSrc,
+      markerSize,
+      markerPoint
+    );
+    selectedMarker.marker.setImage(newMarker);
+  }, [selectedMarker]);
+
   // 마커 이벤트 등록
   useEffect(() => {
     if (publicMarkers.length === 0 || smallMarkers.length === 0) return;
@@ -23,15 +61,18 @@ const useMap = () => {
     const markerEvent = (markerList) => {
       markerList.forEach((item) => {
         kakao.maps.event.addListener(item.marker, "click", () => {
+          returnMarkerImg();
+          setNewImg(item.marker, item.info.XCNTS, item.info.YDNTS);
+
+          setSelectedMarker(item);
           setIsSelectedMarker(true);
-          setSelectedMarker(item.info);
         });
       });
     };
 
     markerEvent(publicMarkers);
     markerEvent(smallMarkers);
-  }, [publicMarkers, smallMarkers]);
+  }, [returnMarkerImg, setNewImg, publicMarkers, smallMarkers]);
 
   // 유저위치 마커 생성
   const setUserMarker = useCallback((map, lat, lng) => {
@@ -58,14 +99,10 @@ const useMap = () => {
   // 도서관 마커 생성
   const setLibraryMarker = useCallback((map, type, libraryList) => {
     const markerList = [];
-    const imgSrc =
-      type === "public"
-        ? "/assets/marker/pin-primary.svg"
-        : "/assets/marker/pin-secondary.svg";
-    const imgSize = new kakao.maps.Size(40, 40);
-    const imgOption = { offset: new kakao.maps.Point(20, 40) };
-
-    const markerImg = new kakao.maps.MarkerImage(imgSrc, imgSize, imgOption);
+    const imgSrc = type === "public" ? publicMarkerSrc : smallMarkerSrc;
+    const markerImg = new kakao.maps.MarkerImage(imgSrc, markerSize, {
+      offset: markerPoint,
+    });
 
     for (const key in libraryList) {
       libraryList[key].forEach((library) => {
@@ -105,7 +142,7 @@ const useMap = () => {
 
       userCtx.isGetLocation && setUserMarker(map, lat, lng);
 
-      if (publicLibrary !== {} || smallLibrary !== {}) {
+      if (publicLibrary != {} || smallLibrary != {}) {
         setLibraryMarker(map, "public", publicLibrary);
         setLibraryMarker(map, "small", smallLibrary);
       }
@@ -161,6 +198,7 @@ const useMap = () => {
     changeLibraryType,
     movePosition,
     closeInfo,
+    returnMarkerImg,
   };
 };
 
