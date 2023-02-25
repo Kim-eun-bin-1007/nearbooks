@@ -13,15 +13,18 @@ const useMap = () => {
   const [libraryType, setLibraryType] = useState("public");
   const [publicMarkers, setPublicMarkers] = useState([]);
   const [smallMarkers, setSmallMarkers] = useState([]);
+  const [isSelectedMarker, setIsSelectedMarker] = useState(false);
+  const [selectedMarker, setSelectedMarker] = useState({});
 
   // 마커 이벤트 등록
   useEffect(() => {
     if (publicMarkers.length === 0 || smallMarkers.length === 0) return;
 
     const markerEvent = (markerList) => {
-      markerList.forEach((marker) => {
-        kakao.maps.event.addListener(marker, "click", () => {
-          console.log("click marker!!!");
+      markerList.forEach((item) => {
+        kakao.maps.event.addListener(item.marker, "click", () => {
+          setIsSelectedMarker(true);
+          setSelectedMarker(item.info);
         });
       });
     };
@@ -73,7 +76,7 @@ const useMap = () => {
         });
 
         marker.setMap(map);
-        markerList.push(marker);
+        markerList.push({ marker, info: library });
         if (type === "small") marker.setVisible(false); // 작은도서관 마커 초기 숨김 처리
       });
 
@@ -114,21 +117,22 @@ const useMap = () => {
   const changeLibraryType = useCallback(
     (type) => {
       if (libraryType === type) return;
+      setIsSelectedMarker(false);
       setLibraryType(type);
 
       if (type === "public") {
-        publicMarkers.forEach((marker) => {
-          marker.setVisible(true);
+        publicMarkers.forEach((item) => {
+          item.marker.setVisible(true);
         });
-        smallMarkers.forEach((marker) => {
-          marker.setVisible(false);
+        smallMarkers.forEach((item) => {
+          item.marker.setVisible(false);
         });
       } else if (type === "small") {
-        publicMarkers.forEach((marker) => {
-          marker.setVisible(false);
+        publicMarkers.forEach((item) => {
+          item.marker.setVisible(false);
         });
-        smallMarkers.forEach((marker) => {
-          marker.setVisible(true);
+        smallMarkers.forEach((item) => {
+          item.marker.setVisible(true);
         });
       }
     },
@@ -144,13 +148,19 @@ const useMap = () => {
     libraryMap.panTo(moveLatLng);
   }, [libraryMap, userCtx]);
 
+  // 도서관 정보 닫기
+  const closeInfo = useCallback(() => {
+    setIsSelectedMarker(false);
+  }, []);
+
   return {
     libraryType,
-    publicMarkers,
-    smallMarkers,
+    isSelectedMarker,
+    selectedMarker,
     createMap,
     changeLibraryType,
     movePosition,
+    closeInfo,
   };
 };
 

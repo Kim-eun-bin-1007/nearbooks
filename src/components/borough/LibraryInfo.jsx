@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import { LibraryInfoStyle } from "../../style/Borough";
 
@@ -11,8 +11,9 @@ function LibraryInfo(props) {
     { dt: "주소", dd: library.ADRES },
   ];
 
-  let libraryFunc =
-    library.HMPG_URL || hasMapBtn ? (
+  let libraryFunc = "";
+  if (library.HMPG_URL || hasMapBtn) {
+    libraryFunc = (
       <div className="library__func">
         {library.HMPG_URL && (
           <a
@@ -34,9 +35,8 @@ function LibraryInfo(props) {
           </Link>
         )}
       </div>
-    ) : (
-      ""
     );
+  }
 
   return (
     <LibraryInfoStyle>

@@ -74,11 +74,18 @@ export const LibraryList = styled.div`
 
 export const LibraryView = styled.div`
   .library-pad {
+    box-sizing: border-box;
     position: relative;
     z-index: 100;
     padding: 60px 15px 0;
     background-color: #eee;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    &.in-map {
+      position: fixed;
+      padding-top: 70px;
+      width: 100%;
+    }
   }
 
   .library__func {
