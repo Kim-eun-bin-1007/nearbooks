@@ -19,8 +19,8 @@ const smallString = "SeoulSmallLibraryInfo";
 const LibraryProvider = (props) => {
   const [publicTotal, setPublicTotal] = useState(0);
   const [smallTotal, setSmallTotal] = useState(0);
-  const [publicLibrary, setPublicLibrary] = useState([]);
-  const [smallLibrary, setSmallLibrary] = useState([]);
+  const [publicLibrary, setPublicLibrary] = useState(null);
+  const [smallLibrary, setSmallLibrary] = useState(null);
 
   // http 요청
   const getRequest = (api) => {

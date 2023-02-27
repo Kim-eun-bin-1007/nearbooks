@@ -5,7 +5,7 @@ import Home from './components/Home';
 import MapWrapper from './components/map/MapWrapper';
 import BoroughLayout from 'components/borough/BoroughLayout';
 import Borough from "./components/borough/Borough";
-import BoroughList from "./components/borough/BoroughList";
+import BoroughListWrapper from "./components/borough/BoroughListWrapper";
 import BoroughView from "./components/borough/BoroughView";
 import { CommonMain } from './style/Common';
 
@@ -19,7 +19,7 @@ function App() {
           <Route path="/map" element={<MapWrapper />} />
           <Route path="/borough" element={<BoroughLayout />}>
             <Route index element={<Borough />} />
-            <Route path=":GuCode" element={<BoroughList />} />
+            <Route path=":GuCode" element={<BoroughListWrapper />} />
           </Route>
           <Route path="/borough/:GuCode/:id" element={<BoroughView />} />
         </Routes>
