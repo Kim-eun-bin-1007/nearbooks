@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 export const UserCtx = React.createContext({
   location: {
-    lat: 37.5666805,
-    lng: 126.9784147
+    lat: 0,
+    lng: 0
   },
   isGetLocation: null,
   getLocation: () => {}
@@ -11,8 +11,8 @@ export const UserCtx = React.createContext({
 
 const UserProvider = (props) => {
   // 기본값 서울시청
-  const [lat, setLat] = useState(37.5666805);
-  const [lng, setLng] = useState(126.9784147);
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
   const [isGetLocation, setIsGetLocation] = useState(null);
 
   const getLocation = () => {
@@ -21,6 +21,8 @@ const UserProvider = (props) => {
       setLng(position.coords.longitude);
       setIsGetLocation(true);
     }, () => {
+      setLat(37.5666805);
+      setLng(126.9784147);
       setIsGetLocation(false);
     })
   }
