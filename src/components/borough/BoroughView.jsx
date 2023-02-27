@@ -1,14 +1,11 @@
 import {
   useState,
-  useContext,
   useRef,
   useEffect,
   useCallback,
-  useMemo
 } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-import { LibraryCtx } from "../../store/library-context";
 import LibraryInfo from "../LibraryInfo";
 import CloseBtn from "../UI/CloseBtn";
 import { LibraryView, MapStyle } from "../../style/Borough";
@@ -23,20 +20,7 @@ function BoroughView() {
   const [isInfoOpened, setIsInfoOpened] = useState(true);
   const infoRef = useRef();
   const mapRef = useRef();
-  const { GuCode: guCode, id } = useParams();
-  const libraryContext = useContext(LibraryCtx);
-
-  // 도서관 정보찾기
-  const library = useMemo(() => {
-    return libraryContext.publicLibrary[guCode].find(
-      (library) => library.LBRRY_SEQ_NO === id
-    ) ||
-      libraryContext.smallLibrary[guCode].find(
-        (library) => library.LBRRY_SEQ_NO === id
-      );
-  }, [guCode, id, libraryContext]);
-
-  console.log(library);
+  const library = useLocation().state.library;
 
   const setMap = useCallback(() => {
     const position = new kakao.maps.LatLng(library.XCNTS, library.YDNTS);
@@ -121,7 +105,7 @@ function BoroughView() {
       <h2 className="hidden">{library.LBRRY_NAME}</h2>
       <div className="library-pad" ref={infoRef}>
         <div className="breadcrumbs">
-          <Link to={`/borough/${guCode}`} className="breadcrumbs__category">
+          <Link to={`/borough/${library.GU_CODE}`} className="breadcrumbs__category">
             {library.CODE_VALUE}
           </Link>
           {!isInfoOpened && <span> {library.LBRRY_NAME}</span>}
@@ -140,7 +124,7 @@ function BoroughView() {
             onClickHandler={setIsInfoOpened.bind(null, false)}
           />
         )}
-        {isInfoOpened && <LibraryInfo library={library} hasMapBtn={false} />}
+        {isInfoOpened && <LibraryInfo library={library} />}
       </div>
       <MapStyle ref={mapRef} height={mapHeight} />
     </LibraryView>

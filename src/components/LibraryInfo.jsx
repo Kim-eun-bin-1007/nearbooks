@@ -96,7 +96,11 @@ function LibraryInfo(props) {
           </a>
         )}
         {hasMapBtn && (
-          <Link to={`${library.LBRRY_SEQ_NO}`} className="btn btn--sec">
+          <Link
+            to={`${library.LBRRY_SEQ_NO}`}
+            state={{ library: library }}
+            className="btn btn--sec"
+          >
             지도
           </Link>
         )}

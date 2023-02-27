@@ -51,7 +51,7 @@ function Map() {
               text="도서관정보 닫기"
               onClickHandler={closeInfoHandler}
             />
-            <LibraryInfo library={selectedMarker.info} hasMapBtn={false} />
+            <LibraryInfo library={selectedMarker.info} />
           </div>
         </LibraryView>
       )}
