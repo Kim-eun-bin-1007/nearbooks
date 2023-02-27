@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState, useCallback } from "react";
 import CSSTransition from "react-transition-group/CSSTransition";
 
+import useDebounce from "../../hook/use-debounce";
 import styled from "styled-components";
 
 const GoTopStyle = styled.div`
@@ -58,26 +59,16 @@ const GoTopStyle = styled.div`
 
 const GoTop = () => {
   const [isShow, setIsShow] = useState(false);
-
+  
   // 일정 구간이 지나야 go-top노출
-  useEffect(() => {
-    const showGotop = () => {
-      if (window.scrollY >= 500) {
-        setIsShow(true);
-      } else {
-        setIsShow(false);
-      }
-    };
-
-    const debounceTimer = setTimeout(() => {
-      window.addEventListener("scroll", showGotop);
-    }, 200);
-
-    return () => {
-      clearTimeout(debounceTimer);
-      window.removeEventListener("scroll", showGotop);
-    };
+  const showGotop = useCallback(() => {
+    if (window.scrollY >= 500) {
+      setIsShow(true);
+    } else {
+      setIsShow(false);
+    }
   }, []);
+  useDebounce({ type: 'scroll', listener: showGotop, delay: 200 });
 
   // click event
   const goTopHandler = () => {

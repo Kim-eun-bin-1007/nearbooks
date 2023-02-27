@@ -6,6 +6,7 @@ import {
 } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import useDebounce from '../../hook/use-debounce';
 import LibraryInfo from "../LibraryInfo";
 import CloseBtn from "../UI/CloseBtn";
 import { LibraryView, MapStyle } from "../../style/Borough";
@@ -55,7 +56,7 @@ function BoroughView() {
     setMap();
     setWindowHeight(window.innerHeight);
   }, [setMap]);
-  
+
   if (
     infoRef.current &&
     infoRef.current.offsetHeight !== infoRefHeight &&
@@ -85,27 +86,21 @@ function BoroughView() {
   }, [isInfoOpened]);
 
   // resize 이벤트
-  useEffect(() => {
-    const resizeEvent = () => {
-      setWindowHeight(window.innerHeight);
-    };
-
-    const debounceTimer = setTimeout(() => {
-      window.addEventListener('resize', resizeEvent)
-    }, 150);
-
-    return () => {
-      clearTimeout(debounceTimer);
-      window.removeEventListener('resize', resizeEvent);
-    }
+  const resizeEvent = useCallback(() => {
+    setWindowHeight(window.innerHeight);
   }, []);
+
+  useDebounce({ type: 'resize', listener: resizeEvent, delay: 150});
 
   return (
     <LibraryView>
       <h2 className="hidden">{library.LBRRY_NAME}</h2>
       <div className="library-pad" ref={infoRef}>
         <div className="breadcrumbs">
-          <Link to={`/borough/${library.GU_CODE}`} className="breadcrumbs__category">
+          <Link
+            to={`/borough/${library.GU_CODE}`}
+            className="breadcrumbs__category"
+          >
             {library.CODE_VALUE}
           </Link>
           {!isInfoOpened && <span> {library.LBRRY_NAME}</span>}
