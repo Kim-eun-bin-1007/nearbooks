@@ -21,8 +21,6 @@ function Map() {
     returnMarkerImg,
   } = useMap();
 
-  // [TODO] : UserCtx.getLocation이 null이면 로딩스피너를 노출
-
   useEffect(() => {
     createMap(mapRef.current);
   }, [createMap]);

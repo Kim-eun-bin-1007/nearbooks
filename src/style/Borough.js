@@ -24,33 +24,24 @@ export const BoroughList = styled.div`
     &__link {
       box-sizing: border-box;
       display: block;
-      padding: 20px 15px;
+      padding: 25px 15px;
       width: 100%;
-      background-color: #477d73;
+      background-color: #fdf1ed;
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.04);
       border-radius: 5px;
       text-align: center;
+      transition: 0.3s;
 
       &:hover,
       &:focus {
-        .borough__title::after {
-          content: "";
-          display: block;
-          position: absolute;
-          top: 0px;
-          right: 0px;
-          transform: translate(100%, -50%);
-          width: 10px;
-          height: 10px;
-          background-color: #e76539;
-          border-radius: 50%;
-        }
+        background-color: #f8d4c9;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
       }
     }
 
     &__title {
       position: relative;
       font-size: 18px;
-      color: white;
     }
   }
 `;
@@ -61,6 +52,7 @@ export const LibraryList = styled.div`
     padding: 20px;
     border: 6px solid #eee;
     border-radius: 30px 20px 30px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
 
     &:nth-child(1) {
       margin-top: 0;

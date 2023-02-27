@@ -31,6 +31,7 @@ export const MapStyle = styled.div`
     background-color: white;
     border: 1px solid #000;
     border-radius: 5px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
 
     &__btn {
       display: flex;

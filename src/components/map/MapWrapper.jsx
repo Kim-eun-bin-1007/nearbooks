@@ -8,7 +8,7 @@ function MapWrapper() {
   const userCtx = useContext(UserCtx);
   
   const showLoadingSpinner = userCtx.getLocation === null || userCtx.location.lng === null;
-  const loadingText = <>지도가 보이지 않으신가요? <br /> 사용자 위치 사용권한을 설정해주세요.</>;
+  const loadingText = <>지도가 보이지 않나요? <br /> 사용자 위치 사용권한을 설정해주세요.</>;
 
   return (
     <>
