@@ -25,6 +25,11 @@ export const CommonMain = styled.div`
     border-radius: 10px;
     font-size: 14px;
 
+    & + .btn {
+      margin-left: 10px;
+    }
+
+    // color variation
     &--bright {
       background-color: #f2aa92;
     }
@@ -38,6 +43,17 @@ export const CommonMain = styled.div`
       }
     }
 
+    // size variation
+    &--lg {
+      padding: 15px 30px;
+      font-size: 15px;
+
+      & + .btn--lg {
+        margin-left: 20px;
+      }
+    }
+
+    // type variation
     &__icon {
       display: inline-block;
       position: relative;
@@ -45,10 +61,6 @@ export const CommonMain = styled.div`
       margin-left: 4px;
       font-size: 14px;
       color: #666;
-    }
-
-    & + .btn {
-      margin-left: 10px;
     }
   }
 
@@ -73,7 +85,7 @@ export const CommonMain = styled.div`
 
     &__category {
       &::after {
-        content: ' >';
+        content: " >";
       }
     }
 
@@ -81,7 +93,7 @@ export const CommonMain = styled.div`
       position: relative;
 
       &::before {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         bottom: -1px;
