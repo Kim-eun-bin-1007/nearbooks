@@ -1,15 +1,15 @@
 import { useState, useContext, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CSSTransition from "react-transition-group/CSSTransition";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 import { LibraryCtx } from "../store/library-context";
 import { UserCtx } from "../store/user-context";
-import CloseBtn from './UI/CloseBtn';
-import { StyledHeader, Menu } from "../style/Header";
+import Nav from './Nav';
+import { StyledHeader } from "../style/Header";
 
 function Header() {
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isOpenNav, setIsOpenNav] = useState(false);
   const { getLocation: getUserLocation } = useContext(UserCtx);
   const { getLibraryList } = useContext(LibraryCtx);
 
@@ -20,13 +20,13 @@ function Header() {
     getUserLocation();
   }, [getLibraryList, getUserLocation]);
 
-  const showMenu = () => {
-    setIsOpenMenu(true);
+  const showNav = () => {
+    setIsOpenNav(true);
     disableBodyScroll(main);
   };
 
-  const hideMenu = () => {
-    setIsOpenMenu(false);
+  const hideNav = () => {
+    setIsOpenNav(false);
     enableBodyScroll(main);
   };
 
@@ -34,7 +34,7 @@ function Header() {
     <>
       <h1 className="hidden">NearbyBooks</h1>
       <CSSTransition
-        in={!isOpenMenu}
+        in={!isOpenNav}
         timeout={200}
         mountOnEnter
         unmountOnExit
@@ -46,7 +46,7 @@ function Header() {
         }}
       >
         <StyledHeader>
-          <button className="menu" onClick={showMenu}>
+          <button className="menu" onClick={showNav}>
             <span className="menu__line" />
             <span className="menu__line" />
             <span className="menu__line" />
@@ -56,46 +56,7 @@ function Header() {
           </Link>
         </StyledHeader>
       </CSSTransition>
-      <CSSTransition
-        in={isOpenMenu}
-        timeout={200}
-        mountOnEnter
-        unmountOnExit
-        classNames={{
-          enter: "",
-          enterActive: "menu--open",
-          exit: "",
-          exitActive: "menu--close",
-        }}
-      >
-        <Menu>
-          <CloseBtn text='메뉴 닫기' onClickHandler={hideMenu} />
-          <ul className="menu-list">
-            <li className="menu-item">
-              <NavLink
-                to="/borough"
-                className={(item) =>
-                  item.isActive ? "menu-title menu-title--active" : "menu-title"
-                }
-                onClick={hideMenu}
-              >
-                자치구별 도서관
-              </NavLink>
-            </li>
-            <li className="menu-item">
-              <NavLink
-                to="/map"
-                className={(item) =>
-                  item.isActive ? "menu-title menu-title--active" : "menu-title"
-                }
-                onClick={hideMenu}
-              >
-                내 주변 도서관
-              </NavLink>
-            </li>
-          </ul>
-        </Menu>
-      </CSSTransition>
+      <Nav isOpenNav={isOpenNav} navOpenHandler={hideNav} />
     </>
   );
 }

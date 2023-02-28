@@ -58,14 +58,14 @@ export const StyledHeader = styled.header`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 12px 10px;
     width: 40px;
     height: 40px;
 
     & .menu__line {
-      width: 65%;
+      width: 100%;
       height: 2px;
-      background-color: #222;
+      background-color: #111;
     }
   }
 
@@ -75,7 +75,7 @@ export const StyledHeader = styled.header`
   }
 `;
 
-export const Menu = styled.div`
+export const NavStyle = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -84,15 +84,15 @@ export const Menu = styled.div`
   height: 100vh;
   background: linear-gradient(to right, #e76539 28%, transparent 200%);
 
-  &.menu--open {
-    animation: menuOpen 0.2s;
+  &.nav--open {
+    animation: navOpen 0.2s;
   }
 
-  &.menu--close {
-    animation: menuClose 0.23s;
+  &.nav--close {
+    animation: navClose 0.23s;
   }
 
-  @keyframes menuOpen {
+  @keyframes navOpen {
     0% {
       opacity: 0;
       transform: translateX(-100%);
@@ -107,7 +107,7 @@ export const Menu = styled.div`
     }
   }
 
-  @keyframes menuClose {
+  @keyframes navClose {
     0% {
       opacity: 1;
       transform: translateX(0);
@@ -134,16 +134,16 @@ export const Menu = styled.div`
     background-color: white;
   }
 
-  .menu-list {
+  .nav-list {
     margin-top: 140px;
     margin-left: 40px;
   }
 
-  .menu-item {
+  .nav-item {
     margin-bottom: 28px;
   }
 
-  .menu-title {
+  .nav-title {
     position: relative;
     font-size: 38px;
     font-weight: 600;
@@ -180,6 +180,86 @@ export const Menu = styled.div`
         height: 2px;
         background-color: white;
       }
+    }
+  }
+
+  .copyright {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    
+    &__text {
+      display: inline-block;
+      position: relative;
+      font-size: 12px;
+      color: #eee;
+      line-height: 1.4;
+      
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #eee;
+      }
+    }
+
+    &:hover, &:focus {
+      .copyright__text {
+        color: #111;
+
+        &::after {
+          background-color: #111;
+        }
+      }
+    }
+  }
+`;
+
+export const ModalInner = styled.div`
+  .modal-inner {
+    &__desc {
+      padding-bottom: 20px;
+      color: #444;
+      text-align: center;
+      line-height: 1.4;
+      word-break: keep-all;
+      word-wrap: break-word;
+    }
+
+    &__func {
+      text-align: right;
+    }
+  }
+
+  .data-info {
+    padding: 15px 10px;
+    border-top: 1px solid #eee;
+
+    &__item {
+      display: flex;
+      margin-bottom: 4px;
+    }
+
+    &__dt,
+    &__dd {
+      font-size: 13px;
+      color: #444;
+    }
+
+    &__dd {
+      margin-left: 5px;
+      color: #666;
+    }
+
+    &__link {
+      color: #111;
+      text-decoration: underline;
     }
   }
 `;
