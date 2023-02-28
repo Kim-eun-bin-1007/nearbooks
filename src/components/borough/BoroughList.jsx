@@ -1,17 +1,9 @@
-import { useContext } from "react";
-import { useParams } from "react-router-dom";
-
-import { LibraryCtx } from "../../store/library-context";
 import LibraryInfo from '../LibraryInfo';
 import GoTop from '../UI/GoTop';
 import { LibraryList } from "../../style/Borough";
 
-function BoroughList() {
-  const { GuCode } = useParams();
-  const libraryCtx = useContext(LibraryCtx);
-
-  const publicLibrary = libraryCtx.publicLibrary[GuCode];
-  const smallLibrary = libraryCtx.smallLibrary[GuCode];
+function BoroughList(props) {
+  const { publicLibrary, smallLibrary } = props;
   const guName = publicLibrary[0].CODE_VALUE;
 
   // total 구하기

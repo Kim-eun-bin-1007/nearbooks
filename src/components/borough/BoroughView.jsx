@@ -4,7 +4,7 @@ import {
   useEffect,
   useCallback,
 } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import useDebounce from '../../hook/use-debounce';
 import LibraryInfo from "../LibraryInfo";
@@ -13,7 +13,7 @@ import { LibraryView, MapStyle } from "../../style/Borough";
 
 const { kakao } = window;
 
-function BoroughView() {
+function BoroughView({ library }) {
   const [mapObj, setMapObj] = useState(null);
   const [windowHeight, setWindowHeight] = useState(0);
   const [infoRefHeight, setInfoRefHeight] = useState(0);
@@ -21,7 +21,6 @@ function BoroughView() {
   const [isInfoOpened, setIsInfoOpened] = useState(true);
   const infoRef = useRef();
   const mapRef = useRef();
-  const library = useLocation().state.library;
 
   const setMap = useCallback(() => {
     const position = new kakao.maps.LatLng(library.XCNTS, library.YDNTS);

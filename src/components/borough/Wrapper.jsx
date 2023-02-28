@@ -17,19 +17,25 @@ function BoroughWrapper(props) {
   const showLoadingSpinner = publicLibrary === null || smallLibrary === null;
 
   useEffect(() => {
+    if (publicLibrary === null || smallLibrary === null) return; // 데이터 받기전 동작X
+
     if (props.component === 'list') {
-      if (publicLibrary === null || !publicLibrary[GuCode]) {
+      if (!publicLibrary[GuCode]) {
         navigate('/error');
         return;
       }
+      const publicList = publicLibrary[GuCode];
+      const smallList = smallLibrary[GuCode];
   
-      setComponent(<BoroughList />);
+      setComponent(<BoroughList publicLibrary={publicList} smallLibrary={smallList} />);
     } else if (props.component === 'view') {
       if (!location.state) {
         navigate("/error");
         return;
       }
-      setComponent(<BoroughView />);
+      const library = location.state.library;
+
+      setComponent(<BoroughView library={library} />);
     }
   }, [navigate, location, publicLibrary, smallLibrary, GuCode, props.component]);
 
