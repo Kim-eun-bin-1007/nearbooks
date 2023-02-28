@@ -17,8 +17,11 @@ function Header() {
 
   useEffect(() => {
     getLibraryList();
+  }, [getLibraryList]);
+  
+  useEffect(() => {
     getUserLocation();
-  }, [getLibraryList, getUserLocation]);
+  }, [getUserLocation]);
 
   const showNav = () => {
     setIsOpenNav(true);

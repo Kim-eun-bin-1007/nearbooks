@@ -49,8 +49,8 @@ const LibraryProvider = (props) => {
   const getLibraryList = useCallback((api, libraryString, updateStateFn) => {
     if (isFetchLibrary) return;
 
-    getRequest(`${api}${libraryString}/0/1/`).then((totalResponse) => {
-      const total = totalResponse[libraryString]?.list_total_count;
+    getRequest(`${api}${libraryString}/0/999/`).then((res) => {
+      const total = res[libraryString]?.list_total_count;
 
       if (libraryString === "SeoulPublicLibraryInfo") {
         setPublicTotal(total);
@@ -60,48 +60,34 @@ const LibraryProvider = (props) => {
 
       if (total >= 1000) {
         // 최대 1000건만 조회가능하여 초과할경우 분할하여 데이터 수신
-        const turn = Math.floor(total / 1000);
+        const turn = Math.ceil(total / 1000);
         const remainNum = total % 1000;
-        let newLibrary = [];
+        let newLibrary = [...res[libraryString].row];
 
-        for (let i = 1; i <= turn; i++) {
+        for (let i = 2; i <= turn; i++) {
           const START_INDEX = 1000 * i - 1000;
           const END_INDEX = 1000 * i - 1;
 
-          fetch(`${api}${libraryString}/${START_INDEX}/${END_INDEX}/`)
-            .then((response) => response.json())
-            .then((res) => {
-              newLibrary.push(...res[libraryString].row);
-              return newLibrary;
-            })
-            .then((data) => {
-              if (i !== turn) return;
-              // 마지막 반복에서만 동작
+          getRequest(
+            `${api}${libraryString}/${START_INDEX}/${END_INDEX}/`
+          ).then((response) => {
+            // 마지막 반복이 아닐경우 동작
+            if (i !== turn) {
+              newLibrary.push(...response[libraryString].row);
+              return;
+            }
 
-              if (remainNum === 0) {
-                classifyData(newLibrary, updateStateFn);
-              }
-
-              fetch(
-                `${api}${libraryString}/${END_INDEX}/${END_INDEX + remainNum}/`
-              )
-                .then((response) => response.json())
-                .then((res) => {
-                  const result = [...data, ...res[libraryString].row];
-                  classifyData(result, updateStateFn);
-                })
-                .catch((err) => console.log(err.message));
-            })
-            .catch((err) => console.log(err.message));
+            // 마지막 반복에서만 동작
+            if (remainNum === 0) {
+              classifyData(newLibrary, updateStateFn);
+            } else {
+              const result = [...newLibrary, ...response[libraryString].row];
+              classifyData(result, updateStateFn);
+            }
+          });
         }
       } else {
-        // 1000건 이하일 경우
-        fetch(`${api}${libraryString}/0/${total}/`)
-          .then((response) => response.json())
-          .then((res) => {
-            classifyData(res[libraryString].row, updateStateFn);
-          })
-          .catch((err) => console.log(err.message));
+        classifyData(res[libraryString].row, updateStateFn);
       }
 
       isFetchLibrary = true;
