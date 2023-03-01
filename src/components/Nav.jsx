@@ -73,7 +73,7 @@ function Nav(props) {
       })}
       <div className="modal-inner__func">
         <button
-          className="btn btn--bright"
+          className="btn"
           onClick={() => setIsOpenModal(false)}
         >
           확인

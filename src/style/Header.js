@@ -260,6 +260,11 @@ export const ModalInner = styled.div`
     &__link {
       color: #111;
       text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: #477d73;
+      }
     }
   }
 `;

@@ -5,6 +5,8 @@ export const BoroughWrap = styled.div`
 `;
 
 export const BoroughList = styled.div`
+  padding-top: 20px;
+
   .borough {
     display: flex;
     flex-wrap: wrap;
@@ -12,7 +14,7 @@ export const BoroughList = styled.div`
     margin-top: 20px;
 
     &__item {
-      margin-top: 20px;
+      margin-top: 25px;
       width: calc(50% - 10px);
 
       &:nth-child(1),
@@ -30,7 +32,7 @@ export const BoroughList = styled.div`
       box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.04);
       border-radius: 5px;
       text-align: center;
-      transition: 0.3s;
+      transition: 0.2s;
 
       &:hover,
       &:focus {

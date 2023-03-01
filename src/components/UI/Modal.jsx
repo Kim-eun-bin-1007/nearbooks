@@ -21,7 +21,7 @@ const ModalStyle = styled.div`
     max-height: 80%;
     background-color: white;
     border-radius: 5px;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 `;
 

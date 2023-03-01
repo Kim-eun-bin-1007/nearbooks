@@ -22,24 +22,39 @@ export const CommonMain = styled.div`
   .btn {
     padding: 8px 20px;
     background-color: #e76539;
+    border: 1px solid #e76539;
     border-radius: 10px;
     font-size: 14px;
+
+    &:hover,
+    &:focus {
+      background-color: #f2aa92;
+    }
 
     & + .btn {
       margin-left: 10px;
     }
 
     // color variation
-    &--bright {
-      background-color: #f2aa92;
-    }
-
     &--sec {
       background-color: #477d73;
+      border-color: #477d73;
       color: white;
+
+      &:hover,
+      &:focus {
+        background-color: #a4ccc4;
+        color: #111;
+      }
 
       &-bright {
         background-color: #a4ccc4;
+        border-color: #a4ccc4;
+
+        &:hover,
+        &:focus {
+          background-color: #e5f5ee;
+        }
       }
     }
 
@@ -101,6 +116,11 @@ export const CommonMain = styled.div`
         width: calc(100% - 11px);
         height: 1px;
         background-color: #666;
+      }
+
+      &:hover,
+      &:focus {
+        color: #477d73;
       }
     }
   }

@@ -58,6 +58,11 @@ const LibraryInfoStyle = styled.div`
 
       &__tel {
         text-decoration: underline;
+
+        &:hover,
+        &:focus {
+          color: #477d73;
+        }
       }
     }
 
@@ -121,7 +126,7 @@ function LibraryInfo(props) {
           let ddContent = info.dd;
           if (info.dt === "전화번호") {
             ddContent = (
-              <a href={`tel:${info.dd}`} className="library-info__tel">
+              <a href={`tel:${info.dd}`} className="library-info__tel" title='전화하기'>
                 {info.dd.trim()}
               </a>
             );
