@@ -4,6 +4,10 @@ import styled from 'styled-components';
 
 const LibraryInfoStyle = styled.div`
   .library {
+    &__heading {
+      padding-right: 30px;
+    }
+    
     &__title {
       box-sizing: border-box;
       display: inline-block;

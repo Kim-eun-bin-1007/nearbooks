@@ -8,21 +8,6 @@ export const MapStyle = styled.div`
     height: 100vh;
   }
 
-  .overlay {
-    box-sizing: border-box;
-    padding: 0.8rem;
-    padding-right: 2rem;
-    width: 180px;
-    background-color: white;
-    border-radius: 5px;
-
-    &-text {
-      font-size: 14px;
-      white-space: normal;
-      word-break: break-word;
-    }
-  }
-
   .category {
     position: absolute;
     bottom: 15px;
