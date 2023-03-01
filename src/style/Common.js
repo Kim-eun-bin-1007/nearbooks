@@ -115,4 +115,25 @@ export const CommonMain = styled.div`
       }
     }
   }
+
+  // route transition
+  .page {
+    &-wrapper {
+      position: relative;
+      overflow: hidden;
+      height: calc(var(--vh, lvh) * 100);
+      width: 100vw;
+    }
+
+    &-enter {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    &-enter-active {
+      transform: translateY(0);
+      opacity: 1;
+      transition: all 350ms ease-in-out;
+    }
+  }
 `;

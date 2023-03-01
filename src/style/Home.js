@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const HomeWrap = styled.div`
+  box-sizing: border-box;
   padding: 100px 15px 60px;
+  min-height: 100vh;
 
   .desc {
     margin: 0 auto;

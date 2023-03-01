@@ -1,4 +1,5 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Header from './components/Header';
 import Home from './components/Home';
@@ -10,27 +11,37 @@ import BoroughWrapper from "./components/borough/Wrapper";
 import { CommonMain } from './style/Common';
 
 function App() {
+  const location = useLocation();
+
   return (
     <CommonMain>
       <Header />
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/map" element={<MapWrapper />} />
-          <Route path="/borough" element={<BoroughLayout />}>
-            <Route index element={<Borough />} />
-            <Route
-              path=":GuCode"
-              element={<BoroughWrapper component="list" />}
-            />
-          </Route>
-          <Route
-            path="/borough/:GuCode/:id"
-            element={<BoroughWrapper component="view" />}
-          />
-          <Route path='/error' element={<Error />} />
-          <Route path="/*" element={<Navigate to='/error' />} />
-        </Routes>
+        <TransitionGroup className="page-wrapper">
+          <CSSTransition
+            key={location.pathname}
+            classNames={"page"}
+            timeout={350}
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/map" element={<MapWrapper />} />
+              <Route path="/borough" element={<BoroughLayout />}>
+                <Route index element={<Borough />} />
+                <Route
+                  path=":GuCode"
+                  element={<BoroughWrapper component="list" />}
+                />
+              </Route>
+              <Route
+                path="/borough/:GuCode/:id"
+                element={<BoroughWrapper component="view" />}
+              />
+              <Route path="/error" element={<Error />} />
+              <Route path="/*" element={<Navigate to="/error" />} />
+            </Routes>
+          </CSSTransition>
+        </TransitionGroup>
       </main>
     </CommonMain>
   );
