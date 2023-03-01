@@ -7,7 +7,7 @@ const LibraryInfoStyle = styled.div`
     &__heading {
       padding-right: 30px;
     }
-    
+
     &__title {
       box-sizing: border-box;
       display: inline-block;
@@ -15,6 +15,7 @@ const LibraryInfoStyle = styled.div`
       margin-left: 0;
       font-size: 18px;
       color: #333;
+      font-weight: 600;
     }
 
     .badge {
@@ -120,7 +121,7 @@ function LibraryInfo(props) {
   return (
     <LibraryInfoStyle>
       <div className="library__heading">
-        <strong className="library__title bold">{library.LBRRY_NAME}</strong>
+        <strong className="library__title">{library.LBRRY_NAME}</strong>
         <span className="badge">{library.LBRRY_SE_NAME}</span>
       </div>
       <dl className="library__content">

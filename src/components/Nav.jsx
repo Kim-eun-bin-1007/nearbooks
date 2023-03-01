@@ -44,7 +44,7 @@ function Nav(props) {
       {dataInfo.map((item, i) => {
         return (
           <div className="data-info" key={i}>
-            <b className="data-info__category bold">{item.title}</b>
+            <b className="data-info__category">{item.title}</b>
             <dl className="data-info__dl">
               <div className="data-info__item">
                 <dt className="data-info__dt">저작권 소유자:</dt>

@@ -7,6 +7,7 @@ export const ErrorStyle = styled.div`
   .error {
     &__title {
       font-size: 32px;
+      font-weight: 600;
     }
 
     &__desc {

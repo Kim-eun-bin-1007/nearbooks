@@ -1,15 +1,6 @@
 import styled from "styled-components";
 
 export const CommonMain = styled.div`
-  @font-face {
-    font-family: "SUIT-semiBold";
-    src: url("./assets/font/SUIT-SemiBold.woff") format("woff");
-  }
-
-  .bold {
-    font-family: "SUIT-semiBold";
-  }
-
   .hidden {
     position: absolute !important;
     overflow: hidden;

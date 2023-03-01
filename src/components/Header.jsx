@@ -53,6 +53,7 @@ function Header() {
             <span className="menu__line" />
             <span className="menu__line" />
             <span className="menu__line" />
+            <span className="hidden">메뉴 열기</span>
           </button>
           <Link to="/">
             <img src="/assets/logo.png" alt="NearbyBooks" className="logo" />

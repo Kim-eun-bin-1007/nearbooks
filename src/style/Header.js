@@ -146,10 +146,8 @@ export const NavStyle = styled.div`
   .nav-title {
     position: relative;
     font-size: 38px;
-    font-weight: 600;
     color: white;
-    -webkit-text-stroke: 0.25px rgba(255, 255, 255, 0.8);
-    -webkit-text-fill-color: transparent;
+    font-weight: 600;
 
     &:hover,
     &:focus {
@@ -240,6 +238,10 @@ export const ModalInner = styled.div`
   .data-info {
     padding: 15px 10px;
     border-top: 1px solid #eee;
+
+    &__category {
+      font-weight: 600;
+    }
 
     &__item {
       display: flex;

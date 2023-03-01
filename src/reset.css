@@ -1,6 +1,13 @@
 @font-face {
   font-family: 'SUIT';
   src: url('./assets/font/SUIT-Regular.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "SUIT";
+  src: url("./assets/font/SUIT-SemiBold.woff") format("woff");
+  font-weight: 600;
 }
 
 body {
@@ -16,10 +23,6 @@ a {
   text-decoration: none;
 }
 
-/* a:focus {
-  outline: 2px solid #477D73;
-} */
-
 ul {
   margin: 0;
   padding: 0;
@@ -27,6 +30,7 @@ ul {
 }
 
 button {
+  margin: 0;
   padding: 0;
   background-color: transparent;
   border: none;
@@ -44,6 +48,14 @@ p {
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+b, strong {
+  font-weight: 400;
 }
