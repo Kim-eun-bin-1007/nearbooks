@@ -59,3 +59,13 @@ h1, h2, h3, h4, h5, h6 {
 b, strong {
   font-weight: 400;
 }
+
+::selection {
+  background-color: #E76539;
+  color: #FFFFFF;
+}
+
+a:focus,
+button:focus {
+  outline-color: #E76539
+}
