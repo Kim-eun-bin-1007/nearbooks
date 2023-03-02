@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const HomeWrap = styled.div`
   box-sizing: border-box;
+  margin: 0 auto;
   padding: 100px 15px 60px;
+  max-width: 640px;
   min-height: 100vh;
 
   .desc {
@@ -54,7 +56,6 @@ export const HomeWrap = styled.div`
       position: absolute;
       bottom: 15px;
       right: 15px;
-      margin-top: 20px;
       width: 28px;
       height: 28px;
     }
@@ -63,7 +64,6 @@ export const HomeWrap = styled.div`
   .tip {
     margin: 0 auto;
     padding: 20px;
-    max-width: 500px;
     border: 1px solid #eee;
     border-radius: 5px;
     font-size: 12px;
@@ -75,6 +75,39 @@ export const HomeWrap = styled.div`
 
     .tip__em {
       color: #111;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .desc {
+      font-size: 18px;
+    }
+
+    .category {
+      &__item {
+        margin-bottom: 40px;
+        width: calc(50% - 15px);
+      }
+
+      &__link {
+        padding: 20px 20px 120px;
+      }
+
+      &__title {
+        font-size: 16px;
+      }
+
+      &__img {
+        bottom: 20px;
+        right: 20px;
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    .tip {
+      padding: 30px;
+      font-size: 14px;
     }
   }
 `;

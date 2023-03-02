@@ -125,58 +125,61 @@ export const NavStyle = styled.div`
   .close-btn {
     top: 15px;
     right: 15px;
-  }
 
-  .close-btn__icon::before,
-  .close-btn__icon::after {
-    width: 100%;
-    height: 3px;
-    background-color: white;
-  }
-
-  .nav-list {
-    margin-top: 140px;
-    margin-left: 40px;
-  }
-
-  .nav-item {
-    margin-bottom: 28px;
-  }
-
-  .nav-title {
-    position: relative;
-    font-size: 38px;
-    color: white;
-    font-weight: 600;
-
-    &:hover,
-    &:focus {
+    &__icon {
+      &::before,
       &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: -5px;
-        right: -12px;
-        width: 10px;
-        height: 10px;
+        width: 100%;
+        height: 3px;
         background-color: white;
-        border-radius: 50%;
       }
     }
+  }
 
-    &--active {
+  .nav {
+    &-list {
+      margin-top: 140px;
+      margin-left: 40px;
+    }
+
+    &-item {
+      margin-bottom: 28px;
+    }
+
+    &-title {
+      position: relative;
+      font-size: 38px;
       color: white;
-      -webkit-text-fill-color: white;
+      font-weight: 600;
 
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: white;
+      &:hover,
+      &:focus {
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: -5px;
+          right: -12px;
+          width: 10px;
+          height: 10px;
+          background-color: white;
+          border-radius: 50%;
+        }
+      }
+
+      &--active {
+        color: white;
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: white;
+        }
       }
     }
   }
@@ -187,16 +190,16 @@ export const NavStyle = styled.div`
     position: absolute;
     bottom: 20px;
     left: 20px;
-    
+
     &__text {
       display: inline-block;
       position: relative;
       font-size: 12px;
       color: #eee;
       line-height: 1.4;
-      
+
       &::after {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         bottom: 0;
@@ -207,13 +210,58 @@ export const NavStyle = styled.div`
       }
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       .copyright__text {
         color: #111;
 
         &::after {
           background-color: #111;
         }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .close-btn {
+      top: 25px;
+      right: 25px;
+    }
+
+    .nav {
+      &-list {
+        margin-left: 60px;
+      }
+
+      &-item {
+        margin-bottom: 56px;
+      }
+
+      &-title {
+        font-size: 56px;
+
+        &:hover,
+        &:focus {
+          &::after {
+            top: -5px;
+            right: -15px;
+            width: 15px;
+            height: 15px;
+          }
+        }
+
+        &--active::before {
+          height: 4px;
+        }
+      }
+    }
+
+    .copyright {
+      bottom: 25px;
+      left: 30px;
+
+      &__text {
+        font-size: 15px;
       }
     }
   }
@@ -266,6 +314,32 @@ export const ModalInner = styled.div`
       &:hover,
       &:focus {
         color: #477d73;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .modal-inner {
+      &__desc {
+        padding-bottom: 40px;
+        font-size: 18px;
+      }
+    }
+
+    .data-info {
+      padding: 20px 10px;
+
+      &__category {
+        font-size: 18px;
+      }
+
+      &__dt,
+      &__dd {
+        font-size: 15px;
+      }
+
+      &__dd {
+        margin-left: 8px;
       }
     }
   }

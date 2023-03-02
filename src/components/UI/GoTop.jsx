@@ -54,6 +54,13 @@ const GoTopStyle = styled.div`
         opacity: 0;
       }
     }
+
+    @media (min-width: 768px) {
+      &__btn {
+        bottom: 25px;
+        right: 25px;
+      }
+    }
   }
 `;
 

@@ -18,10 +18,6 @@ const LibraryInfoStyle = styled.div`
       font-weight: 600;
     }
 
-    .badge {
-      top: -2px;
-    }
-
     &__content {
       margin: 0;
       padding: 20px 0;
@@ -74,6 +70,29 @@ const LibraryInfoStyle = styled.div`
     &__func {
       display: flex;
       justify-content: flex-end;
+    }
+
+    @media (min-width: 768px) {
+      &__title {
+        font-size: 20px;
+      }
+
+      &__content {
+        padding: 26px 0 32px;
+      }
+
+      &-info {
+        margin-bottom: 10px;
+
+        &__dt {
+          width: 100px;
+          font-size: 16px;
+        }
+
+        &__dd {
+          font-size: 16px;
+        }
+      }
     }
   }
 `;

@@ -40,6 +40,12 @@ const Loading = styled.div`
       transform: rotate(360deg);
     }
   }
+
+  @media (min-width: 768px) {
+    .loading__text {
+      font-size: 16px;
+    }
+  }
 `;
 
 const LoadingSpinner = (props) => {

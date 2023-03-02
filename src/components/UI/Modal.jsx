@@ -23,6 +23,12 @@ const ModalStyle = styled.div`
     border-radius: 5px;
     overflow-y: auto;
   }
+
+  @media (min-width: 768px) {
+    .modal {
+      padding: 30px;
+    }
+  }
 `;
 
 const Modal = (props) => {

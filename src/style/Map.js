@@ -58,4 +58,33 @@ export const MapStyle = styled.div`
       position: absolute;
     }
   }
+
+  @media (min-width: 768px) {
+    .category {
+      bottom: 30px;
+      right: 30px;
+
+      &__btn {
+        padding: 10px 15px;
+        padding-left: 10px;
+
+        &--user {
+          border-top: 0.2px solid #ddd;
+
+          .category__img {
+            margin-left: 3px;
+          }
+        }
+      }
+
+      &__img {
+        margin-right: 12px;
+        height: 24px;
+      }
+
+      &__title {
+        font-size: 15px;
+      }
+    }
+  }
 `; 

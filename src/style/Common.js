@@ -76,6 +76,7 @@ export const CommonMain = styled.div`
 
   .badge {
     position: relative;
+    top: -2px;
     display: inline-block;
     padding: 5px 12px;
     background-color: #f5f5f5;
@@ -122,7 +123,7 @@ export const CommonMain = styled.div`
       position: relative;
       overflow: hidden;
       height: calc(var(--vh, lvh) * 100);
-      width: 100vw;
+      width: 100%;
     }
 
     &-enter {
@@ -134,6 +135,34 @@ export const CommonMain = styled.div`
       transform: translateY(0);
       opacity: 1;
       transition: all 350ms ease-in-out;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .btn {
+      padding: 10px 25px;
+      font-size: 16px;
+
+      & + .btn {
+        margin-left: 12px;
+      }
+
+      // size variation
+      &--lg {
+        padding: 18px 36px;
+        font-size: 18px;
+      }
+    }
+
+    .badge {
+      top: -2px;
+      padding: 5px 15px;
+      font-size: 13px;
+    }
+
+    .breadcrumbs {
+      padding: 20px 0;
+      font-size: 16px;
     }
   }
 `;
