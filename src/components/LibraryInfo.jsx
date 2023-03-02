@@ -60,9 +60,11 @@ const LibraryInfoStyle = styled.div`
       &__tel {
         text-decoration: underline;
 
-        &:hover,
-        &:focus {
-          color: #477d73;
+        .no-touchevents & {
+          &:hover,
+          &:focus {
+            color: #477d73;
+          }
         }
       }
     }

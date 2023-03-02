@@ -39,10 +39,12 @@ export const HomeWrap = styled.div`
       border-radius: 5px;
       transition: 0.3s;
 
-      &:hover,
-      &:focus {
-        background-color: #f8d4c9;
-        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+      .no-touchevents & {
+        &:hover,
+        &:focus {
+          background-color: #f8d4c9;
+          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+        }
       }
     }
 

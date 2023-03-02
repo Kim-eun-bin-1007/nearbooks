@@ -152,18 +152,20 @@ export const NavStyle = styled.div`
       color: white;
       font-weight: 600;
 
-      &:hover,
-      &:focus {
-        &::after {
-          content: "";
-          display: block;
-          position: absolute;
-          top: -5px;
-          right: -12px;
-          width: 10px;
-          height: 10px;
-          background-color: white;
-          border-radius: 50%;
+      .no-touchevents & {
+        &:hover,
+        &:focus {
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -5px;
+            right: -12px;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+          }
         }
       }
 
@@ -210,13 +212,15 @@ export const NavStyle = styled.div`
       }
     }
 
-    &:hover,
-    &:focus {
-      .copyright__text {
-        color: #111;
-
-        &::after {
-          background-color: #111;
+    .no-touchevents & {
+      &:hover,
+      &:focus {
+        .copyright__text {
+          color: #111;
+  
+          &::after {
+            background-color: #111;
+          }
         }
       }
     }
@@ -240,6 +244,7 @@ export const NavStyle = styled.div`
       &-title {
         font-size: 56px;
 
+      .no-touchevents & {
         &:hover,
         &:focus {
           &::after {
@@ -249,6 +254,7 @@ export const NavStyle = styled.div`
             height: 15px;
           }
         }
+      }
 
         &--active::before {
           height: 4px;
@@ -311,9 +317,11 @@ export const ModalInner = styled.div`
       color: #111;
       text-decoration: underline;
 
-      &:hover,
-      &:focus {
-        color: #477d73;
+      .no-touchevents & {
+        &:hover,
+        &:focus {
+          color: #477d73;
+        }
       }
     }
   }

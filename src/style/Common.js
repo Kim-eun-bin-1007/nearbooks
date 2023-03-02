@@ -17,9 +17,11 @@ export const CommonMain = styled.div`
     border-radius: 10px;
     font-size: 14px;
 
-    &:hover,
-    &:focus {
-      background-color: #f2aa92;
+    .no-touchevents & {
+      &:hover,
+      &:focus {
+        background-color: #f2aa92;
+      }
     }
 
     & + .btn {
@@ -32,19 +34,23 @@ export const CommonMain = styled.div`
       border-color: #477d73;
       color: white;
 
-      &:hover,
-      &:focus {
-        background-color: #a4ccc4;
-        color: #111;
+      .no-touchevents & {
+        &:hover,
+        &:focus {
+          background-color: #a4ccc4;
+          color: #111;
+        }
       }
 
       &-bright {
         background-color: #a4ccc4;
         border-color: #a4ccc4;
 
-        &:hover,
-        &:focus {
-          background-color: #e5f5ee;
+        .no-touchevents & {
+          &:hover,
+          &:focus {
+            background-color: #e5f5ee;
+          }
         }
       }
     }
@@ -110,9 +116,11 @@ export const CommonMain = styled.div`
         background-color: #666;
       }
 
-      &:hover,
-      &:focus {
-        color: #477d73;
+      .no-touchevents & {
+        &:hover,
+        &:focus {
+          color: #477d73;
+        }
       }
     }
   }

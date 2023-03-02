@@ -41,10 +41,12 @@ export const BoroughList = styled.div`
       text-align: center;
       transition: 0.2s;
 
-      &:hover,
-      &:focus {
-        background-color: #f8d4c9;
-        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+      .no-touchevents & {
+        &:hover,
+        &:focus {
+          background-color: #f8d4c9;
+          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+        }
       }
     }
 
