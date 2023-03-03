@@ -196,6 +196,7 @@ export const LibraryView = styled.div`
 `;
 
 export const MapStyle = styled.div`
+  min-height: 200px;
   width: 100%;
   height: ${(props) => props.height}px;
 `;

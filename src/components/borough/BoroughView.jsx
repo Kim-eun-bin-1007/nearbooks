@@ -38,8 +38,8 @@ function BoroughView({ library }) {
       library.LBRRY_SE_NAME === "공공도서관"
         ? "/assets/marker/pin-primary.svg"
         : "/assets/marker/pin-secondary.svg";
-    const imgSize = new kakao.maps.Size(40, 40);
-    const imgOption = { offset: new kakao.maps.Point(20, 40) };
+        const imgSize = new kakao.maps.Size(50, 50);
+        const imgOption = { offset: new kakao.maps.Point(25, 50) };
 
     const markerImg = new kakao.maps.MarkerImage(ImgSrc, imgSize, imgOption);
 

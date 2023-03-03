@@ -7,8 +7,8 @@ const { kakao } = window;
 const selectedMarkerSrc = "/assets/marker/pin-selected.svg";
 const publicMarkerSrc = "/assets/marker/pin-primary.svg";
 const smallMarkerSrc = "/assets/marker/pin-secondary.svg";
-const markerSize = new kakao.maps.Size(40, 40);
-const markerPoint = new kakao.maps.Point(20, 40);
+const markerSize = new kakao.maps.Size(50, 50);
+const markerPoint = new kakao.maps.Point(25, 50);
 
 const useMap = () => {
   const userCtx = useContext(UserCtx);
