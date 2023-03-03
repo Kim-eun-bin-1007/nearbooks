@@ -13,14 +13,14 @@ const LibraryInfoStyle = styled.div`
       display: inline-block;
       margin: 10px;
       margin-left: 0;
-      font-size: 18px;
+      font-size: 20px;
       color: #333;
       font-weight: 600;
     }
 
     &__content {
       margin: 0;
-      padding: 20px 0;
+      padding: 25px 0 30px;
     }
 
     &-info {
@@ -32,7 +32,6 @@ const LibraryInfoStyle = styled.div`
         position: relative;
         display: block;
         width: 90px;
-        font-size: 14px;
         color: #444;
 
         &::after {
@@ -51,7 +50,6 @@ const LibraryInfoStyle = styled.div`
         display: block;
         margin: 0;
         width: calc(100% - 100px);
-        font-size: 14px;
         color: #444;
         word-break: keep-all;
         word-wrap: break-word;
@@ -76,11 +74,7 @@ const LibraryInfoStyle = styled.div`
 
     @media (min-width: 768px) {
       &__title {
-        font-size: 20px;
-      }
-
-      &__content {
-        padding: 26px 0 32px;
+        font-size: 22px;
       }
 
       &-info {

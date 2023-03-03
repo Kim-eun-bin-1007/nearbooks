@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const HomeWrap = styled.div`
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 100px 15px 60px;
+  padding: 100px 20px 60px;
   max-width: 640px;
   min-height: 100vh;
 
@@ -12,7 +12,7 @@ export const HomeWrap = styled.div`
     padding: 20px;
     padding-bottom: 40px;
     max-width: 360px;
-    font-size: 16px;
+    font-size: 18px;
     color: #444;
     line-height: 1.5;
     text-align: center;
@@ -25,7 +25,7 @@ export const HomeWrap = styled.div`
     justify-content: space-between;
 
     &__item {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       width: calc(50% - 10px);
     }
 
@@ -33,7 +33,7 @@ export const HomeWrap = styled.div`
       box-sizing: border-box;
       display: block;
       position: relative;
-      padding: 15px 15px 80px;
+      padding: 15px 15px 100px;
       background-color: #fdf1ed;
       box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.04);
       border-radius: 5px;
@@ -50,7 +50,7 @@ export const HomeWrap = styled.div`
 
     &__title {
       margin: 0;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     &__img {
@@ -68,7 +68,7 @@ export const HomeWrap = styled.div`
     padding: 20px;
     border: 1px solid #eee;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 14px;
     color: #666;
     line-height: 1.5;
     text-align: center;
@@ -82,12 +82,12 @@ export const HomeWrap = styled.div`
 
   @media (min-width: 768px) {
     .desc {
-      font-size: 18px;
+      font-size: 20px;
     }
 
     .category {
       &__item {
-        margin-bottom: 40px;
+        margin-bottom: 60px;
         width: calc(50% - 15px);
       }
 
@@ -96,7 +96,7 @@ export const HomeWrap = styled.div`
       }
 
       &__title {
-        font-size: 16px;
+        font-size: 18px;
       }
 
       &__img {
@@ -109,7 +109,6 @@ export const HomeWrap = styled.div`
 
     .tip {
       padding: 30px;
-      font-size: 14px;
     }
   }
 `;

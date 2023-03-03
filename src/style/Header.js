@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledHeader = styled.header`
   position: fixed;
@@ -9,7 +9,7 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
+  padding: 10px 20px;
   width: 100%;
   height: 60px;
   background-color: #e76539;
@@ -54,6 +54,8 @@ export const StyledHeader = styled.header`
 
   .menu {
     box-sizing: border-box;
+    position: relative;
+    left: -10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -81,8 +83,18 @@ export const NavStyle = styled.div`
   left: 0;
   z-index: 1000;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: linear-gradient(to right, #e76539 28%, transparent 200%);
+  overflow-y: auto;
+
+  .pad {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    min-height: 460px;
+    height: 100%;
+    padding-bottom: 80px;
+  }
 
   &.nav--open {
     animation: navOpen 0.2s;
@@ -138,12 +150,16 @@ export const NavStyle = styled.div`
 
   .nav {
     &-list {
-      margin-top: 140px;
-      margin-left: 40px;
+      padding-top: 140px;
+      padding-left: 40px;
     }
 
     &-item {
       margin-bottom: 28px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     &-title {
@@ -187,16 +203,16 @@ export const NavStyle = styled.div`
   }
 
   .copyright {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
     display: flex;
     align-items: center;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
 
     &__text {
       display: inline-block;
       position: relative;
-      font-size: 12px;
+      font-size: 14px;
       color: #eee;
       line-height: 1.4;
 
@@ -217,7 +233,7 @@ export const NavStyle = styled.div`
       &:focus {
         .copyright__text {
           color: #111;
-  
+
           &::after {
             background-color: #111;
           }
@@ -234,7 +250,7 @@ export const NavStyle = styled.div`
 
     .nav {
       &-list {
-        margin-left: 60px;
+        padding-left: 60px;
       }
 
       &-item {
@@ -244,17 +260,17 @@ export const NavStyle = styled.div`
       &-title {
         font-size: 56px;
 
-      .no-touchevents & {
-        &:hover,
-        &:focus {
-          &::after {
-            top: -5px;
-            right: -15px;
-            width: 15px;
-            height: 15px;
+        .no-touchevents & {
+          &:hover,
+          &:focus {
+            &::after {
+              top: -5px;
+              right: -15px;
+              width: 15px;
+              height: 15px;
+            }
           }
         }
-      }
 
         &--active::before {
           height: 4px;
@@ -276,7 +292,7 @@ export const NavStyle = styled.div`
 export const ModalInner = styled.div`
   .modal-inner {
     &__desc {
-      padding-bottom: 20px;
+      padding-bottom: 30px;
       color: #444;
       text-align: center;
       line-height: 1.4;
@@ -290,10 +306,11 @@ export const ModalInner = styled.div`
   }
 
   .data-info {
-    padding: 15px 10px;
+    padding: 20px 10px;
     border-top: 1px solid #eee;
 
     &__category {
+      font-size: 16px;
       font-weight: 600;
     }
 
@@ -304,7 +321,7 @@ export const ModalInner = styled.div`
 
     &__dt,
     &__dd {
-      font-size: 13px;
+      font-size: 14px;
       color: #444;
     }
 
@@ -335,8 +352,6 @@ export const ModalInner = styled.div`
     }
 
     .data-info {
-      padding: 20px 10px;
-
       &__category {
         font-size: 18px;
       }

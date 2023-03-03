@@ -10,8 +10,8 @@ export const MapStyle = styled.div`
 
   .category {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
+    bottom: 20px;
+    right: 20px;
     z-index: 100;
     background-color: white;
     border: 1px solid #000;
@@ -22,8 +22,8 @@ export const MapStyle = styled.div`
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      padding: 10px 15px;
-      padding-left: 10px;
+      padding: 11px 18px;
+      padding-left: 13px;
       width: 100%;
       opacity: 0.4;
 
@@ -65,8 +65,8 @@ export const MapStyle = styled.div`
       right: 30px;
 
       &__btn {
-        padding: 10px 15px;
-        padding-left: 10px;
+        padding: 15px 20px;
+        padding-left: 13px;
 
         &--user {
           border-top: 0.2px solid #ddd;
@@ -83,7 +83,7 @@ export const MapStyle = styled.div`
       }
 
       &__title {
-        font-size: 15px;
+        font-size: 16px;
       }
     }
   }

@@ -100,28 +100,30 @@ function Nav(props) {
       }}
     >
       <NavStyle>
-        <CloseBtn text="메뉴 닫기" onClickHandler={hideMenu} />
-        <ul className="nav-list">
-          {navList.map((item, i) => {
-            return (
-              <li className="nav-item" key={i}>
-                <NavLink
-                  to={item.link}
-                  className={(item) =>
-                    item.isActive ? "nav-title nav-title--active" : "nav-title"
-                  }
-                  onClick={hideMenu}
-                >
-                  {item.title}
-                </NavLink>
-              </li>
-            );
-          })}
-        </ul>
-        <button className="copyright" onClick={() => setIsOpenModal(true)}>
-          <span className="copyright__text">저작권 안내</span>
-        </button>
-        {isOpenModal && <Modal>{modalInner}</Modal>}
+        <div className='pad'>
+        <  CloseBtn text="메뉴 닫기" onClickHandler={hideMenu} />
+          <ul className="nav-list">
+            {navList.map((item, i) => {
+              return (
+                <li className="nav-item" key={i}>
+                  <NavLink
+                    to={item.link}
+                    className={(item) =>
+                      item.isActive ? "nav-title nav-title--active" : "nav-title"
+                    }
+                    onClick={hideMenu}
+                  >
+                    {item.title}
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
+          <button className="copyright" onClick={() => setIsOpenModal(true)}>
+            <span className="copyright__text">저작권 안내</span>
+          </button>
+          {isOpenModal && <Modal>{modalInner}</Modal>}
+        </div>
       </NavStyle>
     </CSSTransition>
   );

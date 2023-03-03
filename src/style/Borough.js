@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BoroughWrap = styled.div`
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 70px 15px 60px;
+  padding: 70px 20px 60px;
   max-width: 960px;
 
   @media (min-width: 768px) {
@@ -98,7 +98,7 @@ export const BoroughList = styled.div`
 export const LibraryList = styled.div`
   .library {
     box-sizing: border-box;
-    margin-top: 25px;
+    margin-top: 40px;
     padding: 20px;
     border: 6px solid #eee;
     border-radius: 30px 20px 30px 0;
@@ -109,16 +109,12 @@ export const LibraryList = styled.div`
     }
 
     &-list {
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     @media (min-width: 768px) {
       padding: 30px;
       margin-top: 50px;
-
-      &-list {
-        margin-top: 15px;
-      }
     }
 
     @media (min-width: 960px) {
@@ -142,7 +138,7 @@ export const LibraryView = styled.div`
     box-sizing: border-box;
     position: relative;
     z-index: 100;
-    padding: 60px 15px 0;
+    padding: 60px 20px 0;
     background-color: #eee;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
@@ -158,8 +154,8 @@ export const LibraryView = styled.div`
   }
 
   .close-btn {
-    top: 64px;
-    right: 8px;
+    top: 70px;
+    right: 10px;
   }
 
   .open-btn {

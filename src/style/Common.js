@@ -11,11 +11,10 @@ export const CommonMain = styled.div`
   }
 
   .btn {
-    padding: 8px 20px;
+    padding: 10px 24px;
     background-color: #e76539;
     border: 1px solid #e76539;
     border-radius: 10px;
-    font-size: 14px;
 
     .no-touchevents & {
       &:hover,
@@ -57,8 +56,8 @@ export const CommonMain = styled.div`
 
     // size variation
     &--lg {
-      padding: 15px 30px;
-      font-size: 15px;
+      padding: 15px 34px;
+      font-size: 16px;
 
       & + .btn--lg {
         margin-left: 20px;
@@ -92,9 +91,8 @@ export const CommonMain = styled.div`
   }
 
   .breadcrumbs {
-    padding: 15px 0;
+    padding: 20px 0;
     color: #444;
-    font-size: 14px;
 
     &__category {
       &::after {
@@ -148,7 +146,7 @@ export const CommonMain = styled.div`
 
   @media (min-width: 768px) {
     .btn {
-      padding: 10px 25px;
+      padding: 12px 26px;
       font-size: 16px;
 
       & + .btn {
@@ -157,7 +155,7 @@ export const CommonMain = styled.div`
 
       // size variation
       &--lg {
-        padding: 18px 36px;
+        padding: 18px 38px;
         font-size: 18px;
       }
     }
@@ -170,7 +168,7 @@ export const CommonMain = styled.div`
 
     .breadcrumbs {
       padding: 20px 0;
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 `;

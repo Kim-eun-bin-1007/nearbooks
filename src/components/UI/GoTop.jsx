@@ -9,8 +9,8 @@ const GoTopStyle = styled.div`
     &__btn {
       box-sizing: border-box;
       position: fixed;
-      bottom: 15px;
-      right: 15px;
+      bottom: 20px;
+      right: 20px;
       padding: 15px;
       width: 50px;
       height: 50px;
