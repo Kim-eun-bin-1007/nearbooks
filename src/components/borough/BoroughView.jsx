@@ -9,7 +9,8 @@ import { Link } from "react-router-dom";
 import useDebounce from '../../hook/use-debounce';
 import LibraryInfo from "../LibraryInfo";
 import CloseBtn from "../UI/CloseBtn";
-import { LibraryView, MapStyle } from "../../style/Borough";
+import { LibraryView } from "../../style/Borough";
+import { MapContainer } from "style/MapContainer";
 
 const { kakao } = window;
 
@@ -68,7 +69,7 @@ function BoroughView({ library }) {
   // infoRefHeight가 변경될 때마다 mapHeight값 update
   useEffect(() => {
     if (infoRefHeight === 0) return; // 초기실행 방지
-    setMapHeight(windowHeight - infoRefHeight);
+    setMapHeight(`${windowHeight - infoRefHeight}px`);
   }, [windowHeight, infoRefHeight]);
 
   // mapHeight가 변경될 때마다 지도 사이즈와 센터값 변경
@@ -120,7 +121,7 @@ function BoroughView({ library }) {
         )}
         {isInfoOpened && <LibraryInfo library={library} />}
       </div>
-      <MapStyle ref={mapRef} height={mapHeight} />
+      <MapContainer ref={mapRef} height={mapHeight} />
     </LibraryView>
   );
 }

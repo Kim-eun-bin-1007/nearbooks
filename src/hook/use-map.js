@@ -191,6 +191,7 @@ const useMap = () => {
   }, []);
 
   return {
+    mapObj: libraryMap,
     libraryType,
     isSelectedMarker,
     selectedMarker,

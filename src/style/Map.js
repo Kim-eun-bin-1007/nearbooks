@@ -3,11 +3,6 @@ import styled from 'styled-components';
 export const MapStyle = styled.div`
   position: relative;
 
-  .map {
-    width: 100%;
-    height: 100vh;
-  }
-
   .category {
     position: absolute;
     bottom: 20px;
