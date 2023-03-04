@@ -64,8 +64,6 @@ export const MapStyle = styled.div`
         padding-left: 13px;
 
         &--user {
-          border-top: 0.2px solid #ddd;
-
           .category__img {
             margin-left: 3px;
           }
