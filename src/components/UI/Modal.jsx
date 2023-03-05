@@ -5,7 +5,7 @@ const ModalStyle = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: var(--100vh, 100vh);
   background-color: rgba(0, 0, 0, 0.85);
 
   .modal {

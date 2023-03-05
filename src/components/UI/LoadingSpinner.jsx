@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Loading = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: var(--100vh, 100vh);
 
   .loading {
     box-sizing: border-box;

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -10,8 +11,20 @@ import Borough from "./components/borough/Borough";
 import BoroughWrapper from "./components/borough/Wrapper";
 import { CommonMain } from './style/Common';
 
+const setVh = () => {
+  document.documentElement.style.setProperty(
+    "--100vh",
+    `${window.innerHeight}px`
+  );
+};
+
 function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    setVh();
+    window.addEventListener("orientationchange", setVh);
+  }, []);
 
   return (
     <CommonMain>

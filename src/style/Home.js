@@ -5,7 +5,7 @@ export const HomeWrap = styled.div`
   margin: 0 auto;
   padding: 100px 20px 60px;
   max-width: 640px;
-  min-height: 100vh;
+  min-height: var(--100vh, 100vh);
 
   .desc {
     margin: 0 auto;

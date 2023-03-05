@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ErrorStyle = styled.div`
   box-sizing: border-box;
   padding: 120px 15px 60px;
-  min-height: 100vh;
+  min-height: var(--100vh, 100vh);
   text-align: center;
 
   .error {
