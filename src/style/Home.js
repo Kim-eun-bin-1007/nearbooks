@@ -39,7 +39,7 @@ export const HomeWrap = styled.div`
       border-radius: 5px;
       transition: 0.3s;
 
-      .no-touchevents & {
+      @media (hover: hover) {
         &:hover,
         &:focus {
           background-color: #f8d4c9;

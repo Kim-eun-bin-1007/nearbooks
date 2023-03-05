@@ -16,7 +16,7 @@ export const CommonMain = styled.div`
     border: 1px solid #e76539;
     border-radius: 10px;
 
-    .no-touchevents & {
+    @media (hover: hover) {
       &:hover,
       &:focus {
         background-color: #f2aa92;
@@ -33,7 +33,7 @@ export const CommonMain = styled.div`
       border-color: #477d73;
       color: white;
 
-      .no-touchevents & {
+      @media (hover: hover) {
         &:hover,
         &:focus {
           background-color: #a4ccc4;
@@ -45,7 +45,7 @@ export const CommonMain = styled.div`
         background-color: #a4ccc4;
         border-color: #a4ccc4;
 
-        .no-touchevents & {
+        @media (hover: hover) {
           &:hover,
           &:focus {
             background-color: #e5f5ee;
@@ -114,7 +114,7 @@ export const CommonMain = styled.div`
         background-color: #666;
       }
 
-      .no-touchevents & {
+      @media (hover: hover) {
         &:hover,
         &:focus {
           color: #477d73;

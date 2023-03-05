@@ -168,7 +168,7 @@ export const NavStyle = styled.div`
       color: white;
       font-weight: 600;
 
-      .no-touchevents & {
+      @media (hover: hover) {
         &:hover,
         &:focus {
           &::after {
@@ -228,7 +228,7 @@ export const NavStyle = styled.div`
       }
     }
 
-    .no-touchevents & {
+    @media (hover: hover) {
       &:hover,
       &:focus {
         .copyright__text {
@@ -260,7 +260,7 @@ export const NavStyle = styled.div`
       &-title {
         font-size: 56px;
 
-        .no-touchevents & {
+        @media (hover: hover) {
           &:hover,
           &:focus {
             &::after {
@@ -334,7 +334,7 @@ export const ModalInner = styled.div`
       color: #111;
       text-decoration: underline;
 
-      .no-touchevents & {
+      @media (hover: hover) {
         &:hover,
         &:focus {
           color: #477d73;

@@ -41,7 +41,7 @@ export const BoroughList = styled.div`
       text-align: center;
       transition: 0.2s;
 
-      .no-touchevents & {
+      @media (hover: hover) {
         &:hover,
         &:focus {
           background-color: #f8d4c9;
