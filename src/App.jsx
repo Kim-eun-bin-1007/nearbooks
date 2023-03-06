@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
+import useDebounce from "hook/use-debounce";
 import Header from './components/Header';
 import Home from './components/Home';
 import Error from './components/Error';
@@ -25,6 +26,8 @@ function App() {
     setVh();
     window.addEventListener("orientationchange", setVh);
   }, []);
+
+  useDebounce({ type: 'resize', listener: setVh, delay: 400 });
 
   return (
     <CommonMain>

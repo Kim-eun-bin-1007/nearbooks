@@ -38,8 +38,8 @@ function Nav(props) {
   const modalInner = (
     <ModalInner>
       <p className="modal-inner__desc">
-        NearbyBooks에서 제공되는 공공도서관 및 작은도서관 정보는
-        서울 열린데이터광장에서 제공하는 데이터를 사용합니다.
+        NearbyBooks에서 제공되는 공공도서관 및 작은도서관 정보는 서울
+        열린데이터광장에서 제공하는 데이터를 사용합니다.
       </p>
       {dataInfo.map((item, i) => {
         return (
@@ -72,10 +72,7 @@ function Nav(props) {
         );
       })}
       <div className="modal-inner__func">
-        <button
-          className="btn"
-          onClick={() => setIsOpenModal(false)}
-        >
+        <button className="btn" onClick={() => setIsOpenModal(false)}>
           확인
         </button>
       </div>
@@ -100,8 +97,8 @@ function Nav(props) {
       }}
     >
       <NavStyle>
-        <div className='pad'>
-        <  CloseBtn text="메뉴 닫기" onClickHandler={hideMenu} />
+        <div className="pad">
+          <CloseBtn text="메뉴 닫기" onClickHandler={hideMenu} />
           <ul className="nav-list">
             {navList.map((item, i) => {
               return (
@@ -109,7 +106,9 @@ function Nav(props) {
                   <NavLink
                     to={item.link}
                     className={(item) =>
-                      item.isActive ? "nav-title nav-title--active" : "nav-title"
+                      item.isActive
+                        ? "nav-title nav-title--active"
+                        : "nav-title"
                     }
                     onClick={hideMenu}
                   >
