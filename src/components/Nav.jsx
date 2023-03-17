@@ -97,7 +97,7 @@ function Nav(props) {
         exitActive: "nav--close",
       }}
     >
-      <NavStyle>
+      <NavStyle className='nav'>
         <div className="pad">
           <CloseBtn text="메뉴 닫기" onClickHandler={hideMenu} />
           <ul className="nav-list">

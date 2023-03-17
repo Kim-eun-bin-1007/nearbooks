@@ -32,10 +32,6 @@ export const HomeWrap = styled.div`
     }
   }
 
-  .data-info {
-    border-top: none;
-  }
-
   .category {
     display: flex;
     justify-content: space-between;

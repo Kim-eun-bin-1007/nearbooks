@@ -1,4 +1,7 @@
-import styled from 'styled-components';
+import { useEffect } from "react";
+import ReactDom from "react-dom";
+import styled from "styled-components";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 const ModalStyle = styled.div`
   position: fixed;
@@ -33,10 +36,27 @@ const ModalStyle = styled.div`
 `;
 
 const Modal = (props) => {
+  const container = document.querySelector(".common-style");
+  const main = container.querySelector("main");
+  const nav = container.querySelector(".nav");
+
+  useEffect(() => {
+    !nav && disableBodyScroll(main);
+
+    return () => {
+      !nav && enableBodyScroll(main);
+    };
+  }, [main, nav]);
+
   return (
-    <ModalStyle>
-      <div className="modal">{props.children}</div>
-    </ModalStyle>
+    <>
+      {ReactDom.createPortal(
+        <ModalStyle>
+          <div className="modal">{props.children}</div>
+        </ModalStyle>,
+        container
+      )}
+    </>
   );
 };
 

@@ -193,6 +193,7 @@ export const ModalInner = styled.div`
   .modal-inner {
     &__desc {
       padding-bottom: 30px;
+      border-bottom: 1px solid #eee;
       color: #444;
       text-align: center;
       line-height: 1.4;
@@ -205,7 +206,6 @@ export const ModalInner = styled.div`
 
   .data-info {
     padding: 20px 10px;
-    border-top: 1px solid #eee;
 
     &__category {
       font-size: 16px;

@@ -10,7 +10,6 @@ import MapWrapper from './components/map/MapWrapper';
 import BoroughLayout from 'components/borough/BoroughLayout';
 import Borough from "./components/borough/Borough";
 import BoroughWrapper from "./components/borough/Wrapper";
-import { CommonMain } from './style/Common';
 
 const setVh = () => {
   document.documentElement.style.setProperty(
@@ -30,7 +29,7 @@ function App() {
   useDebounce({ type: 'resize', listener: setVh, delay: 400 });
 
   return (
-    <CommonMain>
+    <>
       <Header />
       <main>
         <TransitionGroup className="page-wrapper">
@@ -59,7 +58,7 @@ function App() {
           </CSSTransition>
         </TransitionGroup>
       </main>
-    </CommonMain>
+    </>
   );
 }
 
