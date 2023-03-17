@@ -4,7 +4,8 @@ import CSSTransition from "react-transition-group/CSSTransition";
 
 import CloseBtn from "./UI/CloseBtn";
 import Modal from "./UI/Modal";
-import { NavStyle, ModalInner } from "../style/Header";
+import { NavStyle } from "../style/Header";
+import { ModalInner } from '../style/Common';
 
 const navList = [
   {
@@ -58,7 +59,7 @@ function Nav(props) {
                 <dt className="data-info__dt">사이트:</dt>
                 <dd className="data-info__dd">
                   <a
-                    className="data-info__link"
+                    className="link-btn"
                     href={item.site}
                     target="_blank"
                     rel="noopener noreferrer"

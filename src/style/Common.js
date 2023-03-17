@@ -75,6 +75,17 @@ export const CommonMain = styled.div`
     }
   }
 
+  .link-btn {
+    text-decoration: underline;
+
+    @media (hover: hover) {
+      &:hover,
+      &:focus {
+        color: #477d73;
+      }
+    }
+  }
+
   .info {
     color: #666;
   }
@@ -174,6 +185,82 @@ export const CommonMain = styled.div`
     .breadcrumbs {
       padding: 20px 0;
       font-size: 18px;
+    }
+  }
+`;
+
+export const ModalInner = styled.div`
+  .modal-inner {
+    &__desc {
+      padding-bottom: 30px;
+      color: #444;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    &__func {
+      text-align: right;
+    }
+  }
+
+  .data-info {
+    padding: 20px 10px;
+    border-top: 1px solid #eee;
+
+    &__category {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    &__item {
+      display: flex;
+      margin-bottom: 4px;
+    }
+
+    &__dt,
+    &__dd {
+      font-size: 14px;
+      color: #444;
+    }
+
+    &__dd {
+      margin-left: 5px;
+      color: #666;
+    }
+
+    &__p {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #444;
+      line-height: 1.5;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .modal-inner {
+      &__desc {
+        padding-bottom: 40px;
+        font-size: 18px;
+      }
+    }
+
+    .data-info {
+      &__category {
+        font-size: 18px;
+      }
+
+      &__dt,
+      &__dd {
+        font-size: 15px;
+      }
+
+      &__dd {
+        margin-left: 8px;
+      }
+
+      &__p {
+        font-size: 15px;
+      }
     }
   }
 `;

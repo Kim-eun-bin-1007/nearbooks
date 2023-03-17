@@ -54,17 +54,6 @@ const LibraryInfoStyle = styled.div`
         word-break: keep-all;
         word-wrap: break-word;
       }
-
-      &__tel {
-        text-decoration: underline;
-
-        @media (hover: hover) {
-          &:hover,
-          &:focus {
-            color: #477d73;
-          }
-        }
-      }
     }
 
     &__func {
@@ -150,7 +139,7 @@ function LibraryInfo(props) {
             ddContent = (
               <a
                 href={`tel:${info.dd}`}
-                className="library-info__tel"
+                className="link-btn"
                 title="전화하기"
               >
                 {info.dd.trim()}

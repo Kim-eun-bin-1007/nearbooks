@@ -16,8 +16,24 @@ export const HomeWrap = styled.div`
     color: #444;
     line-height: 1.5;
     text-align: center;
-    word-break: keep-all;
-    word-wrap: break-word;
+  }
+
+  .help {
+    margin-bottom: 15px;
+    text-align: right;
+
+    .link-btn {
+      text-decoration: underline #666;
+    }
+
+    &__text {
+      font-size: 13px;
+      color: #666;
+    }
+  }
+
+  .data-info {
+    border-top: none;
   }
 
   .category {
@@ -72,8 +88,6 @@ export const HomeWrap = styled.div`
     color: #666;
     line-height: 1.5;
     text-align: center;
-    word-break: keep-all;
-    word-wrap: break-word;
 
     .tip__em {
       color: #111;

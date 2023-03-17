@@ -46,6 +46,8 @@ img {
 
 p {
   margin: 0;
+  word-break: keep-all;
+  word-wrap: break-word;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -56,6 +58,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
+  word-break: keep-all;
+  word-wrap: break-word;
 }
 
 b, strong {

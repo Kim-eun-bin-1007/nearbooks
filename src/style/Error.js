@@ -10,8 +10,6 @@ export const ErrorStyle = styled.div`
     &__title {
       font-size: 32px;
       font-weight: 600;
-      word-break: keep-all;
-      word-wrap: break-word;
     }
 
     &__desc {
