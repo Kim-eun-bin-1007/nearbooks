@@ -84,10 +84,15 @@ export const CommonMain = styled.div`
     top: -2px;
     display: inline-block;
     padding: 5px 12px;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
+    border: 1px solid #477d73;
     border-radius: 15px;
     font-size: 12px;
+    color: #335b54;
+
+    &--sec {
+      border: 1px solid #da4b1b;
+      color: #b63216;
+    }
   }
 
   .breadcrumbs {

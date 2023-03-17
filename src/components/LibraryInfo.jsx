@@ -133,11 +133,13 @@ function LibraryInfo(props) {
     );
   }
 
+  const badgeClass = library.LBRRY_SE_NAME === '공공도서관' ? 'badge' : 'badge badge--sec';
+
   return (
     <LibraryInfoStyle>
       <div className="library__heading">
         <strong className="library__title">{library.LBRRY_NAME}</strong>
-        <span className="badge">{library.LBRRY_SE_NAME}</span>
+        <span className={badgeClass}>{library.LBRRY_SE_NAME}</span>
       </div>
       <dl className="library__content">
         {infoList.map((info) => {
@@ -146,7 +148,11 @@ function LibraryInfo(props) {
           let ddContent = info.dd;
           if (info.dt === "전화번호") {
             ddContent = (
-              <a href={`tel:${info.dd}`} className="library-info__tel" title='전화하기'>
+              <a
+                href={`tel:${info.dd}`}
+                className="library-info__tel"
+                title="전화하기"
+              >
                 {info.dd.trim()}
               </a>
             );

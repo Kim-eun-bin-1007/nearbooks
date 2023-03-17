@@ -21,7 +21,7 @@ function BoroughList(props) {
     <LibraryList>
       <h2 className="hidden">{guName} 도서관 정보</h2>
       <div className="breadcrumbs">
-        <p className="breadcrumbs__category">{guName}</p>
+        <span>{guName}</span>
       </div>
 
       <p className="info">총 {GuTotal}개</p>
