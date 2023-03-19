@@ -38,7 +38,7 @@ const LibraryInfoStyle = styled.div`
           content: "";
           display: block;
           position: absolute;
-          top: 3px;
+          top: 5px;
           right: 15px;
           width: 1px;
           height: 10px;

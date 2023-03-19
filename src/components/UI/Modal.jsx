@@ -21,8 +21,7 @@ const ModalStyle = styled.div`
     padding: 20px;
     max-width: 500px;
     width: 80%;
-    min-height: 280px;
-    max-height: 80%;
+    max-height: calc(100% - 30px);
     background-color: white;
     border-radius: 5px;
     overflow-y: auto;
