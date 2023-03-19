@@ -40,7 +40,10 @@ const Modal = (props) => {
   const nav = container.querySelector(".nav");
 
   useEffect(() => {
-    !nav && disableBodyScroll(main);
+    !nav &&
+      disableBodyScroll(main, {
+        allowTouchMove: (el) => el.closest(".modal"),
+      });
 
     return () => {
       !nav && enableBodyScroll(main);

@@ -25,7 +25,14 @@ function Header() {
 
   const showNav = () => {
     setIsOpenNav(true);
-    disableBodyScroll(main);
+
+    disableBodyScroll(main, {
+      allowTouchMove: (el) => {
+        if (el.closest('.nav') || el.closest('.modal')) {
+          return true;
+        }
+      }
+    });
   };
 
   const hideNav = () => {
