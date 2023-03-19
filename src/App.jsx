@@ -45,12 +45,12 @@ function App() {
                 <Route index element={<Borough />} />
                 <Route
                   path=":GuCode"
-                  element={<BoroughWrapper component="list" />}
+                  element={<BoroughWrapper />}
                 />
               </Route>
               <Route
                 path="/borough/:GuCode/:id"
-                element={<BoroughWrapper component="view" />}
+                element={<BoroughWrapper />}
               />
               <Route path="/error" element={<Error />} />
               <Route path="/*" element={<Navigate to="/error" />} />

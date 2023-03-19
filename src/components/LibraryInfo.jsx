@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const LibraryInfoStyle = styled.div`
   .library {
@@ -110,11 +110,7 @@ function LibraryInfo(props) {
           </a>
         )}
         {hasMapBtn && (
-          <Link
-            to={`${library.LBRRY_SEQ_NO}`}
-            state={{ library: library }}
-            className="btn btn--sec"
-          >
+          <Link to={`${library.LBRRY_SEQ_NO}`} className="btn btn--sec">
             지도
           </Link>
         )}
@@ -122,7 +118,8 @@ function LibraryInfo(props) {
     );
   }
 
-  const badgeClass = library.LBRRY_SE_NAME === '공공도서관' ? 'badge' : 'badge badge--sec';
+  const badgeClass =
+    library.LBRRY_SE_NAME === "공공도서관" ? "badge" : "badge badge--sec";
 
   return (
     <LibraryInfoStyle>
@@ -137,11 +134,7 @@ function LibraryInfo(props) {
           let ddContent = info.dd;
           if (info.dt === "전화번호") {
             ddContent = (
-              <a
-                href={`tel:${info.dd}`}
-                className="link-btn"
-                title="전화하기"
-              >
+              <a href={`tel:${info.dd}`} className="link-btn" title="전화하기">
                 {info.dd.trim()}
               </a>
             );
