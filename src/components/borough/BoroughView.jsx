@@ -90,7 +90,10 @@ function BoroughView({ library }) {
     setWindowHeight(window.innerHeight);
   }, []);
 
-  useDebounce({ type: 'resize', listener: resizeEvent, delay: 150});
+  useDebounce({ type: 'resize', listener: resizeEvent, delay: 150 });
+  useEffect(() => {
+    window.addEventListener("orientationchange", resizeEvent);
+  }, [resizeEvent]);
 
   return (
     <LibraryView>

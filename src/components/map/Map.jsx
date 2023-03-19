@@ -81,6 +81,9 @@ function Map() {
   }, []);
 
   useDebounce({ type: "resize", listener: resizeEvent, delay: 150 });
+  useEffect(() => {
+    window.addEventListener("orientationchange", resizeEvent);
+  }, [resizeEvent]);
 
   const publicBtnClass =
     libraryType === "public" ? "category__btn active" : "category__btn";
