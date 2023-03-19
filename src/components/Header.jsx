@@ -50,9 +50,7 @@ function Header() {
       >
         <StyledHeader>
           <button className="menu" onClick={showNav}>
-            <span className="menu__line" />
-            <span className="menu__line" />
-            <span className="menu__line" />
+            <img src="/assets/menu.svg" alt="" className="menu__icon"/>
             <span className="hidden">메뉴 열기</span>
           </button>
           <Link to="/">

@@ -60,14 +60,12 @@ export const StyledHeader = styled.header`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 10px;
+    padding: 4px;
     width: 40px;
     height: 40px;
 
-    & .menu__line {
+    &__icon {
       width: 100%;
-      height: 2px;
-      background-color: #111;
     }
   }
 
