@@ -32,7 +32,7 @@ function Map() {
 
   useEffect(() => {
     createMap(mapRef.current);
-    setWindowHeight(window.innerHeight);
+    setWindowHeight(window.innerHeight - 1);
   }, [createMap]);
 
   // infoRef 높이값 구하기(컴포넌트 렌더링 후 실행하기 위해 dependencies 사용X)
@@ -77,7 +77,7 @@ function Map() {
 
   // resize 이벤트
   const resizeEvent = useCallback(() => {
-    setWindowHeight(window.innerHeight);
+    setWindowHeight(window.innerHeight - 1);
   }, []);
 
   useDebounce({ type: "resize", listener: resizeEvent, delay: 150 });

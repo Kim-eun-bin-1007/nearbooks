@@ -6,6 +6,6 @@ export const MapContainer = styled.div`
   height: ${(props) => props.height};
 
   @media (min-width: 768px) {
-    min-height: 300px;
+    min-height: 290px;
   }
 `;

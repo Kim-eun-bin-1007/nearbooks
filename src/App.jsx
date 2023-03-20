@@ -14,7 +14,7 @@ import BoroughWrapper from "./components/borough/Wrapper";
 const setVh = () => {
   document.documentElement.style.setProperty(
     "--100vh",
-    `${window.innerHeight}px`
+    `${window.innerHeight - 1}px`
   );
 };
 

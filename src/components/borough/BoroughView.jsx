@@ -54,7 +54,7 @@ function BoroughView({ library }) {
 
   useEffect(() => {
     setMap();
-    setWindowHeight(window.innerHeight);
+    setWindowHeight(window.innerHeight - 1);
   }, [setMap]);
 
   if (
@@ -87,7 +87,7 @@ function BoroughView({ library }) {
 
   // resize 이벤트
   const resizeEvent = useCallback(() => {
-    setWindowHeight(window.innerHeight);
+    setWindowHeight(window.innerHeight - 1);
   }, []);
 
   useDebounce({ type: 'resize', listener: resizeEvent, delay: 150 });
